@@ -9,6 +9,7 @@ Library    jsonschema
 Library    json
 
 Resource    ../support/variables/variables_api.resource
+Resource    ../support/common/common.resource
 
 *** Keywords ***
 Iniciar sessão

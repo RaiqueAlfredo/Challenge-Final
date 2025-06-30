@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.4 on win32)" generated="2025-06-30T20:57:07.988173" rpa="false" schemaversion="5">
+<suite id="s1" name="Authentication Tests" source="C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\tests\authentication_tests.robot">
+<test id="s1-t1" name="AUTH-BE-007: Login com credenciais inválidas" line="24">
+<kw name="Iniciar sessão" owner="base" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-30T20:57:08.416158" level="INFO">Creating Session using : alias=Cinema App API, url=http://localhost:5000/api/v1, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=${ALIAS_BASE}</arg>
+<arg>url=${URL_BASE}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-30T20:57:08.415942" elapsed="0.000372"/>
+</kw>
+<status status="PASS" start="2025-06-30T20:57:08.415391" elapsed="0.000988"/>
+</kw>
+<kw name="Payload login com credenciais inválidas" owner="common">
+<kw name="Importar JSON static" owner="common">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-06-30T20:57:08.417330" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_auth.json"&gt;C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_auth.json&lt;/a&gt;'.</msg>
+<msg time="2025-06-30T20:57:08.417532" level="INFO">${arquivo} = {
+    "user_login":{
+        "email": "user@example.com",
+        "password": "password123"
+    },
+    "admin_login":{
+        "email": "admin@example.com",
+        "password": "password123"
+    },
+  ...</msg>
+<var>${arquivo}</var>
+<arg>C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados API\\support\\common/../../support/fixtures/static/${nome_arquivo}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.417214" elapsed="0.000341"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.417832" level="INFO">${data} = {'user_login': {'email': 'user@example.com', 'password': 'password123'}, 'admin_login': {'email': 'admin@example.com', 'password': 'password123'}, 'user_email_dup': {'email': 'user@example.com', 'pass...</msg>
+<var>${data}</var>
+<arg>json.loads('''${arquivo}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.417638" elapsed="0.000215"/>
+</kw>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2025-06-30T20:57:08.417891" elapsed="0.000035"/>
+</return>
+<msg time="2025-06-30T20:57:08.418015" level="INFO">${json} = {'user_login': {'email': 'user@example.com', 'password': 'password123'}, 'admin_login': {'email': 'admin@example.com', 'password': 'password123'}, 'user_email_dup': {'email': 'user@example.com', 'pass...</msg>
+<var>${json}</var>
+<arg>json_auth.json</arg>
+<status status="PASS" start="2025-06-30T20:57:08.416803" elapsed="0.001229"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.418385" level="INFO">${dados_login_inv} = {'email': 'invalidEmail.com', 'password': ''}</msg>
+<var>${dados_login_inv}</var>
+<arg>${json["user_login_inv"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.418109" elapsed="0.000294"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.418598" level="INFO">${dados_login_inv} = {'email': 'invalidEmail.com', 'password': ''}</msg>
+<arg>${dados_login_inv}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.418487" elapsed="0.000139"/>
+</kw>
+<status status="PASS" start="2025-06-30T20:57:08.416578" elapsed="0.002081"/>
+</kw>
+<kw name="POST endpoint /auth/login com credenciais inválidas" owner="authentication_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-30T20:57:08.445221" level="INFO">POST Request : url=http://localhost:5000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '45'} 
+ body=b'{"email": "invalidEmail.com", "password": ""}' 
+ </msg>
+<msg time="2025-06-30T20:57:08.445297" level="INFO">POST Response : url=http://localhost:5000/api/v1/auth/login 
+ status=401, reason=Unauthorized 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '55', 'ETag': 'W/"37-5uDpJTljPBecOPs/j7OXFdPRcmQ"', 'Date': 'Mon, 30 Jun 2025 23:57:08 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":false,"message":"Invalid email or password"} 
+ </msg>
+<msg time="2025-06-30T20:57:08.445380" level="INFO">${resp} = &lt;Response [401]&gt;</msg>
+<var>${resp}</var>
+<arg>alias=${ALIAS_BASE}</arg>
+<arg>url=/auth/login</arg>
+<arg>json=&amp;{payload}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=${status_code_desejado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.419016" elapsed="0.026382"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.445811" level="INFO">Response: {'success': False, 'message': 'Invalid email or password'}</msg>
+<arg>Response: ${resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.445503" elapsed="0.000340"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.446034" level="INFO">${resp} = &lt;Response [401]&gt;</msg>
+<arg>${resp}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.445926" elapsed="0.000136"/>
+</kw>
+<status status="PASS" start="2025-06-30T20:57:08.418824" elapsed="0.027277"/>
+</kw>
+<kw name="Validar se retorna mensagem informando que as credenciais são inválidas" owner="authentication_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resp.json()["success"]}</arg>
+<arg>${False}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.446520" elapsed="0.000307"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resp.json()["message"]}</arg>
+<arg>Invalid email or password</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.446908" elapsed="0.000284"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.447503" level="INFO">success: False</msg>
+<arg>success: ${resp.json()["success"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.447268" elapsed="0.000263"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.447830" level="INFO">message: Invalid email or password</msg>
+<arg>message: ${resp.json()["message"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.447604" elapsed="0.000253"/>
+</kw>
+<status status="PASS" start="2025-06-30T20:57:08.446315" elapsed="0.001577"/>
+</kw>
+<kw name="Validar Status Code &quot;401&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${resp.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.448221" elapsed="0.000591"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.449135" level="INFO">Status Code: 401</msg>
+<arg>Status Code: ${statuscode}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.449029" elapsed="0.000144"/>
+</kw>
+<status status="PASS" start="2025-06-30T20:57:08.448040" elapsed="0.001182"/>
+</kw>
+<kw name="Finalizar sessão" owner="base" type="TEARDOWN">
+<kw name="Delete All Sessions" owner="RequestsLibrary">
+<msg time="2025-06-30T20:57:08.449668" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2025-06-30T20:57:08.449623" elapsed="0.000101"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-30T20:57:08.449854" level="INFO">Sessões encerradas.</msg>
+<arg>Sessões encerradas.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-30T20:57:08.449801" elapsed="0.000081"/>
+</kw>
+<status status="PASS" start="2025-06-30T20:57:08.449444" elapsed="0.000472"/>
+</kw>
+<tag>login_inválido</tag>
+<status status="PASS" start="2025-06-30T20:57:08.414787" elapsed="0.035219"/>
+</test>
+<doc>Cenários de testes candidatos à automação para o módulo de "Authentication"</doc>
+<status status="PASS" start="2025-06-30T20:57:07.989386" elapsed="0.461092"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">login_inválido</stat>
+</tag>
+<suite>
+<stat name="Authentication Tests" id="s1" pass="1" fail="0" skip="0">Authentication Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
