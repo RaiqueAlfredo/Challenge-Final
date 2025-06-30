@@ -1,0 +1,5321 @@
+{
+	"info": {
+		"_postman_id": "11478a4b-31fe-4902-a9dd-7923baa64171",
+		"name": "Cinema App API",
+		"description": "Esta collection contém todos os endpoints da API do Cinema App organizados em categorias, cada uma representando funcionalidades principais do sistema. A collection foi projetada para facilitar a execução e o gerenciamento de testes manuais para garantir a integridade e o funcionamento adequado da API. Cada pasta corresponde a um módulo específico da aplicação, contendo os testes relevantes para esse módulo.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44548099",
+		"_collection_link": "https://raique-2993386.postman.co/workspace/Testes~05e0aeb5-6e95-4045-a001-61381967cc88/collection/44548099-11478a4b-31fe-4902-a9dd-7923baa64171?action=share&source=collection_link&creator=44548099"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "ID: AUTH-BE-001 (Registro de usuário com dados válidos)",
+					"item": [
+						{
+							"name": "Registro de usuário com dados válidos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Raique Alfredo\",\r\n  \"email\": \"raique@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica o registro de um usuário com dados válidos.\n\n### **Pré-condição**\n\nNenhum usuário com o mesmo e-mail deve existir.\n\n### **Passos**\n\n1. Fazer uma requisição **POST** na rota `/api/v1/auth/register`.\n    \n2. Enviar no payload os campos **name**, **email** e **password** com valores válidos.\n    \n\n### **Resultado Esperado**\n\n- Retorna status **201 (Created)**.\n    \n- A resposta contém os dados do usuário criado (exceto a senha)."
+				},
+				{
+					"name": "ID: AUTH-BE-002 (Login com credenciais válidas)",
+					"item": [
+						{
+							"name": "Registro de usuário para login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Login\",\r\n  \"email\": \"login@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais válidas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"login@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica o login de um usuário com credenciais válidas.\n\n**Pré-condição:** O usuário deve estar registrado.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/auth/login.\n    \n- Enviar no payload os campos email e password corretos.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém um token JWT válido."
+				},
+				{
+					"name": "ID: AUTH-BE-003 (Logout do usuário autenticado)",
+					"item": [
+						{
+							"name": "Registro de usuário para logout",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Logout\",\r\n  \"email\": \"logout@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"logout@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout do usuário autenticado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/auth/logout",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica o logout de um usuário.\n\n**Pré-condição:** O usuário deve estar autenticado e possuir um token JWT válido.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/auth/logout.\n    \n- Garantir que o token JWT é enviado no cabeçalho da requisição.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta confirma que o logout foi concluído.\n    \n- Token JWT é invalidado no sistema."
+				},
+				{
+					"name": "ID: AUTH-BE-004 (Visualizar informações do perfil)",
+					"item": [
+						{
+							"name": "Registro de usuário para ver informações",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Infos\",\r\n  \"email\": \"infos@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"infos@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Visualizar informações do perfil",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/auth/me",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica as informações do perfil do usuário.\n\n**Pré-condição:** O usuário deve estar autenticado.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/auth/me.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém informações como nome, e-mail e função do usuário."
+				},
+				{
+					"name": "ID: AUTH-BE-005 (Atualizar informações do perfil)",
+					"item": [
+						{
+							"name": "Registro de usuário para atualizar suas informações",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Atualizar\",\r\n  \"email\": \"atualizar@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"atualizar@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar informações do perfil",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Atualizar\",\r\n  \"currentPassword\": \"qatest321\",\r\n  \"newPassword\": \"testqa123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/profile",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de um usuário com dados válidos.\n\n**Pré-condição:** O usuário deve estar autenticado.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/auth/profile.\n    \n- Enviar no payload os campos que o usuário deseja modificar (exemplo: name).\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK), confirmando a atualização.\n    \n- Retorna mensagem que contém os dados com a atualização."
+				},
+				{
+					"name": "ID: AUTH-BE-006 (Registro de usuário com e-mail já existente)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Dup Email\",\r\n  \"email\": \"duplicado@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registro de usuário com email duplicado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Dup Email\",\r\n  \"email\": \"duplicado@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica o registro de um usuário com um e-mail já cadastrado.\n\n**Pré-condição:** Deve existir um usuário registrado com o mesmo e-mail.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/auth/register.\n    \n- Enviar no payload os campos name, email (já registrado) e password com valores válidos.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém uma mensagem de erro indicando que o e-mail já está em uso."
+				},
+				{
+					"name": "ID: AUTH-BE-007 (Login com e-mail ou senha inválidos)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Login Inv\",\r\n  \"email\": \"inv@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais inválidas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"invalidEmail.com\",\r\n  \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica o login de um usuário com credenciais inválidas.\n\n**Pré-condição:** O usuário deve estar registrado.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/auth/login.\n    \n- Enviar no payload um email inexistente ou uma password incorreta.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém uma mensagem de erro indicando credenciais inválidas."
+				},
+				{
+					"name": "ID: AUTH-BE-008 (Atualizar perfil com informações inválidas)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Atualizar User\",\r\n  \"email\": \"user@atualizar.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"user@atualizar.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar perfil com informações inválidas",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"\",\r\n  \"currentPassword\": \"\",\r\n  \"newPassword\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/profile",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de um usuário com credenciais inválidas.\n\n**Pré-condição:** O usuário deve estar autenticado.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/auth/profile.\n    \n- Enviar no payload campos inválidos (exemplo: name vazio ou senha com formato inválido).\n    \n\n**Resultado Esperado:**\n\n- Retorna status 401 (Unauthorized).\n    \n- A resposta contém mensagens de erro específicas para os campos inválidos."
+				},
+				{
+					"name": "ID: SETUP-BE-001 (Criar um administrador no ambiente de desenvolvimento)",
+					"item": [
+						{
+							"name": "Criar um administrador no ambiente de desenvolvimento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin\",\r\n  \"email\": \"email@admin.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de um administrador no ambiente de desenvolvimento.\n\n**Pré-condição:** O ambiente deve estar configurado como \"development\".  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/setup/admin.\n    \n- Enviar no payload os seguintes campos: name; email; password.\n    \n\n**Resultado Esperado:**\n\n- Status: 201 (Created)\n    \n- Mensagem de sucesso contendo os dados criados, exceto senha e sua role."
+				},
+				{
+					"name": "ID: SETUP-BE-002 (Criar usuários de teste no ambiente de desenvolvimento)",
+					"item": [
+						{
+							"name": "Criar usuários de teste no ambiente de desenvolvimento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/test-users",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"test-users"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de usuários de teste no ambiente de desenvolvimento.\n\n**Pré-condição:** O ambiente deve estar configurado como \"development\".  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/setup/test-user.\n    \n\n**Resultado Esperado:**\n\n- Status: 200 (OK)\n    \n- Mensagem de sucesso adequada."
+				}
+			],
+			"description": "Esta pasta contém os testes relacionados ao módulo de autenticação, incluindo endpoints para registro, login, logout e gerenciamento de perfis de usuários autenticados. É responsável por validar o controle de acesso à aplicação e garantir que somente usuários autorizados possam realizar determinadas ações."
+		},
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "ID: USER-BE-001 (Listar todos os usuários)",
+					"item": [
+						{
+							"name": "Criar um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Admin Test 01\",\r\n  \"email\": \"admin01@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"admin01@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todos os usuários",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/users?page=1&limit=10&role=user",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of users to return. Default value : 10"
+										},
+										{
+											"key": "role",
+											"value": "user",
+											"description": "Filter by user role. Available values : user, admin"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a listagem de usuários.\n\n**Pré-condição:**\n\n- O usuário deve estar autenticado como administrador.\n    \n- **Parameters:**\n    \n    - page; limit; role.\n        \n\n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/users.\n    \n- Incluir o token JWT do administrador no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém uma lista de usuários cadastrados."
+				},
+				{
+					"name": "ID: USER-BE-002 (Obter detalhes de um usuário por ID)",
+					"item": [
+						{
+							"name": "Criar um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Admin Test 02\",\r\n  \"email\": \"admin02@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"admin02@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test\",\r\n  \"email\": \"usertest02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obter detalhes de um usuário por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/users/{{id-user-002}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"users",
+										"{{id-user-002}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica os detalhes de um usuário por ID.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/users/{id}.\n    \n- Substituir {id} pelo ID do usuário desejado.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém os detalhes do usuário especificado."
+				},
+				{
+					"name": "ID: USER-BE-003 (Excluir um usuário por ID)",
+					"item": [
+						{
+							"name": "Criar um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Admin Test 03\",\r\n  \"email\": \"admin03@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"admin03@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test\",\r\n  \"email\": \"usertest03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir um usuário por ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/users/{{id-user-003}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"users",
+										"{{id-user-003}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a exclusão de um usuário por ID.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição DELETE na rota /api/v1/users/{id}.\n    \n- Substituir {id} pelo ID do usuário a ser excluído.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- Retorna mensagem informando que o usuário foi deletado com sucesso."
+				},
+				{
+					"name": "ID: USER-BE-004 (Obter detalhes de um usuário com ID incorreto ou inexistente)",
+					"item": [
+						{
+							"name": "Criar um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Admin Test 04\",\r\n  \"email\": \"admin04@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"admin04@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obter detalhes de um usuário com ID incorreto ou inexistente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/users/id-incorreto-004",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"users",
+										"id-incorreto-004"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica os detalhes de um usuário usando um ID incorreto ou inexistente.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/users/{id}\n    \n- Substituir {id} por um ID inválido ou inexistente.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 404 (Not Found).\n    \n- A resposta contém uma mensagem de erro indicando que o usuário não foi encontrado ou o ID é inválido."
+				},
+				{
+					"name": "ID: USER-BE-005 (Excluir um usuário com ID incorreto ou inexistente)",
+					"item": [
+						{
+							"name": "Criar um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Admin Test 05\",\r\n  \"email\": \"admin05@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"admin05@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir um usuário com ID incorreto ou inexistente",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/users/id-incorreto",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"users",
+										"id-incorreto"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a exclusão de um usuário usando um ID incorreto ou inexistente.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição DELETE na rota /api/v1/users/{id}.\n    \n- Substituir {id} por um ID inválido ou inexistente.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 404 (Not Found).\n    \n- A resposta contém uma mensagem de erro indicando que o usuário não foi encontrado."
+				},
+				{
+					"name": "ID: USER-BE-006 (Atualizar informações de um usuário existente)",
+					"item": [
+						{
+							"name": "Criar um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Admin Test 06\",\r\n  \"email\": \"admin06@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"admin06@test.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test 06\",\r\n  \"email\": \"usertest06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar informações de um usuário existente",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Atualizado 06\",\r\n  \"email\": \"userTestAtualizado06@email.com\",\r\n  \"role\": \"user\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/users/{{id-user-006}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"users",
+										"{{id-user-006}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de um usuário.\n\n**Pré-condição:**\n\n- O usuário deve estar autenticado como administrador.\n    \n- O ID do usuário a ser atualizado deve existir no sistema\n    \n\n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/users/{id}.\n    \n- Substituir {id} pelo ID válido do usuário a ser atualizado.\n    \n- Incluir o token JWT do administrador no cabeçalho da requisição.\n    \n- Enviar no request body os campos a serem modificados.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém a mensagem de sucesso e os dados atualizados do usuário."
+				}
+			],
+			"description": "Esta pasta agrupa os testes para os endpoints relacionados ao gerenciamento de usuários. Inclui operações administrativas, como listar usuários, obter detalhes de um usuário específico, atualizar e excluir usuários do sistema."
+		},
+		{
+			"name": "Filmes",
+			"item": [
+				{
+					"name": "ID: MOVIE-BE-001 (Listar todos os filmes disponíveis)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Movie 01\",\r\n  \"email\": \"usermovie01@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"usermovie01@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todos os filmes disponíveis",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/movies?title=Interstellar&genre=Action",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Interstellar",
+											"description": "Movie title filter"
+										},
+										{
+											"key": "genre",
+											"value": "Action",
+											"description": "Filter by genre"
+										},
+										{
+											"key": "sort",
+											"value": "2014-11-07T00:00:00.000Z",
+											"description": "Sort field (e.g., releaseDate, title)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of movies to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica listagem de filmes.\n\n**Título:** Listar todos os filmes disponíveis  \n**Pré-condição:** Deve haver filmes cadastrados.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/movies.\n    \n- Parameters: title; genre; sort; limit; page.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém uma lista de filmes com detalhes: título, sinopse, diretor, gêneros, duração e data de lançamento."
+				},
+				{
+					"name": "ID: MOVIE-BE-002 (Detalhar informações de um filme)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Movie 02\",\r\n  \"email\": \"usermovie02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"usermovie02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todos os filmes disponíveis",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Interstellar",
+											"description": "Movie title filter",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": "Action",
+											"description": "Filter by genre",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "2014-11-07T00:00:00.000Z",
+											"description": "Sort field (e.g., releaseDate, title)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of movies to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Detalhar informações de um filme",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/movies/{{id-movie-002}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies",
+										"{{id-movie-002}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica as informações de um filme.\n\n**Pré-condição:** O ID do filme deve existir.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/movies/{id}.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém detalhes como title, sinopse, elenco, diretor, gênero, data de lançamento e duração."
+				},
+				{
+					"name": "ID: MOVIE-BE-003 (Criar um novo filme com dados válidos)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Movie 03\",\r\n  \"email\": \"userAdminMovie03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminMovie03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme com dados válidos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie 03\",\r\n  \"synopsis\": \"Test movie 03\",\r\n  \"director\": \"Testador do Movie 03\",\r\n  \"genres\": [\r\n    \"Science Fiction\"\r\n  ],\r\n  \"duration\": 160,\r\n  \"classification\": \"14\",\r\n  \"poster\": \"filmeTest03.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de um novo filme com dados válidos.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/movies.\n    \n- Enviar no payload os campos title, synopsis, director, genres, duration, classification, poster e releaseDate com valores válidos.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 201 (Created).\n    \n- A resposta contém os dados do filme criado."
+				},
+				{
+					"name": "ID: MOVIE-BE-004 (Atualizar um filme existente com dados válidos)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Movie 04\",\r\n  \"email\": \"userAdminMovie04@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminMovie04@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie 04\",\r\n  \"synopsis\": \"Test movie 04\",\r\n  \"director\": \"Testador do Movie 04\",\r\n  \"genres\": [\r\n    \"Action\"\r\n  ],\r\n  \"duration\": 200,\r\n  \"classification\": \"16\",\r\n  \"poster\": \"filmeTest04.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar um filme existente com dados válidos",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie 04 Atualizado\",\r\n  \"synopsis\": \"Test movie 04 Atualizado\",\r\n  \"director\": \"Testador do Movie 04 Atualizado\",\r\n  \"genres\": [\r\n    \"Drama\"\r\n  ],\r\n  \"duration\": 180,\r\n  \"classification\": \"16\",\r\n  \"poster\": \"filmeTest04Atualizado.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies/{{id-movie-004}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies",
+										"{{id-movie-004}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de um filme com dados válidos.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/movies/{id}.\n    \n- Substituir {id} pelo ID do filme a ser atualizado.\n    \n- Enviar no payload os campos a serem modificados.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém os dados atualizados do filme."
+				},
+				{
+					"name": "ID: MOVIE-BE-005 (Excluir um filme por ID)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Movie 05\",\r\n  \"email\": \"userAdminMovie05@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminMovie05@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie 05\",\r\n  \"synopsis\": \"Test movie 05\",\r\n  \"director\": \"Testador do Movie 05\",\r\n  \"genres\": [\r\n    \"Drama\"\r\n  ],\r\n  \"duration\": 130,\r\n  \"classification\": \"14\",\r\n  \"poster\": \"filmeTest05.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir um filme por ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/movies/{{id-movie-005}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies",
+										"{{id-movie-005}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a exclusão de filmes por ID.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição DELETE na rota /api/v1/movies/{id}.\n    \n- Substituir {id} pelo ID do filme a ser excluído.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- Retorna a mensagem informando que o filme foi removido com sucesso."
+				},
+				{
+					"name": "ID: MOVIE-BE-006 (Criar um novo filme com payload inválido ou ausente)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Movie 06\",\r\n  \"email\": \"userAdminMovie06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminMovie06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme com payload inválido ou ausente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"\",\r\n  \"synopsis\": \"05\",\r\n  \"director\": \"\",\r\n  \"genres\": [\r\n    \"Drama\"\r\n  ],\r\n  \"duration\": 0,\r\n  \"classification\": \"\",\r\n  \"poster\": \"invalidPoster\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de um novo filme com dados inválidos ou ausente.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/movies.\n    \n- Enviar no payload campos incompletos, inválidos ou ausentes.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém mensagens de erro indicando os campos inválidos ou ausentes."
+				},
+				{
+					"name": "ID: MOVIE-BE-007 (Atualizar um filme existente com payload inválido ou ausente)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Movie 07\",\r\n  \"email\": \"userAdminMovie07@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminMovie07@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme com payload inválido ou ausente Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie 07\",\r\n  \"synopsis\": \"Test movie 07\",\r\n  \"director\": \"Testador do Movie 07\",\r\n  \"genres\": [\r\n    \"Drama\"\r\n  ],\r\n  \"duration\": 170,\r\n  \"classification\": \"17\",\r\n  \"poster\": \"filmeTest07.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar um filme existente com payload inválido ou ausente",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"\",\r\n  \"synopsis\": \"Test movie 07 Atualizado\",\r\n  \"director\": \"Testador do Movie 07 Atualizado\",\r\n  \"genres\": [\r\n    \"Drama\"\r\n  ],\r\n  \"duration\": 0,\r\n  \"classification\": \"\",\r\n  \"poster\": \".jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies/{{id-movie-007}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies",
+										"{{id-movie-007}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de um filme com dados inválidos ou ausente.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/movies/{id}.\n    \n- Substituir {id} pelo ID válido do filme.\n    \n- Enviar no payload campos inválidos ou ausentes.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém mensagens de erro indicando os campos inválidos ou ausentes."
+				},
+				{
+					"name": "ID: MOVIE-BE-008 (Excluir um filme com ID incorreto ou inexistente)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Movie 08\",\r\n  \"email\": \"userAdminMovie08@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin Copy 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminMovie08@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir um filme com ID incorreto ou inexistente",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/movies/id-incorreto",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies",
+										"id-incorreto"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a exclusão de um filme com ID incorreto ou inexistente.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição DELETE na rota /api/v1/movies/{id}.\n    \n- Substituir {id} por um ID inválido ou inexistente.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 404 (Not Found).\n    \n- A resposta contém uma mensagem de erro indicando que o filme não foi encontrado."
+				}
+			],
+			"description": "Contém os testes para os endpoints de gerenciamento de filmes. Abrange a listagem, detalhamento, criação, atualização e exclusão de filmes, garantindo a integridade e consistência dos dados disponíveis para exibição ao público."
+		},
+		{
+			"name": "Cinemas",
+			"item": [
+				{
+					"name": "ID: THEATERS-BE-001 (Listar todos os cinemas cadastrados)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Theaters 01\",\r\n  \"email\": \"userTheaters01@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userTheaters01@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todos os cinemas cadastrados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/theaters?type=IMAX&sort=120&limit=10&page=1",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "IMAX",
+											"description": "Filter by theater type. Available values : standard, 3D, IMAX, VIP"
+										},
+										{
+											"key": "sort",
+											"value": "120",
+											"description": "Sort field (e.g., name, capacity)"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of theaters to return. Default value : 10"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a listagem de todos os cinemas.\n\n**Pré-condição:** Nenhuma.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/theaters.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém uma lista de cinemas com detalhes como nome, localização e capacidade."
+				},
+				{
+					"name": "ID: THEATERS-BE-002 (Obter detalhes de um cinema existente)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Theaters 02\",\r\n  \"email\": \"userTheaters02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userTheaters02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todos os cinemas cadastrados para pegar o ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/theaters?type=IMAX&sort=120&limit=10&page=1",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "IMAX",
+											"description": "Filter by theater type. Available values : standard, 3D, IMAX, VIP"
+										},
+										{
+											"key": "sort",
+											"value": "120",
+											"description": "Sort field (e.g., name, capacity)"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of theaters to return. Default value : 10"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obter detalhes de um cinema existente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/theaters/{{id-theaters-002}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters",
+										"{{id-theaters-002}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica os detalhes de um cinema.\n\n**Pré-condição:** O ID do cinema deve existir.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/theaters/{id}.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém os detalhes completos do cinema (nome, type, capacidade, etc.)."
+				},
+				{
+					"name": "ID: THEATERS-BE-003 (Criar um novo cinema com dados válidos)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Theaters 03\",\r\n  \"email\": \"userAdminTheaters03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminTheaters03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema com dados válidos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test 003\",\r\n  \"capacity\": 1000,\r\n  \"type\": \"3D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de um novo cinema com dados válidos.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/theaters.\n    \n- Enviar no payload os campos name, capacity e type com valores válidos.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 201 (Created).\n    \n- A resposta contém os dados do cinema criado."
+				},
+				{
+					"name": "ID: THEATERS-BE-004 (Atualizar um cinema existente com dados válidos)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Theaters 04\",\r\n  \"email\": \"userAdminTheaters04@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminTheaters04@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test 004\",\r\n  \"capacity\": 400,\r\n  \"type\": \"IMAX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar um cinema existente com dados válidos",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test 004 Atualizado\",\r\n  \"capacity\": 440,\r\n  \"type\": \"3D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters/{{id-theaters-004}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters",
+										"{{id-theaters-004}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de um cinema com dados válidos.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/theaters/:id.\n    \n- Substituir :id pelo ID do cinema a ser atualizado.\n    \n- Enviar no payload os campos a serem modificados.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém os dados atualizados do cinema."
+				},
+				{
+					"name": "ID: THEATERS-BE-005 (Excluir um cinema por ID)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Theaters 05\",\r\n  \"email\": \"userAdminTheaters05@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminTheaters05@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test 005\",\r\n  \"capacity\": 500,\r\n  \"type\": \"3D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir um cinema por ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/theaters/{{id-theaters-005}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters",
+										"{{id-theaters-005}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a exclusão de um cinema por ID.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição DELETE na rota /api/v1/theaters/{id}.\n    \n- Substituir {id} pelo ID do cinema a ser excluído.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- O cinema é removido do sistema."
+				},
+				{
+					"name": "ID: THEATERS-BE-006 (Tentar criar um novo cinema com payload inválido ou ausente)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Theaters 06\",\r\n  \"email\": \"userAdminTheaters06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminTheaters06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tentar criar um novo cinema com payload inválido ou ausente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"\",\r\n  \"capacity\": 0,\r\n  \"type\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de um novo cinema com dados inválidos ou ausentes.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/theaters.\n    \n- Enviar no payload campos incompletos, inválidos ou ausentes (ex.: name vazio ou capacity negativo).\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém mensagens de erro detalhando os campos inválidos ou ausentes."
+				},
+				{
+					"name": "ID: THEATERS-BE-007 (Tentar atualizar um cinema com payload inválido ou ausente)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Theaters 07\",\r\n  \"email\": \"userAdminTheaters07@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminTheaters07@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test 007\",\r\n  \"capacity\": 700,\r\n  \"type\": \"IMAX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tentar atualizar um cinema com payload inválido ou ausente",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"\",\r\n  \"capacity\": 0,\r\n  \"type\": \"3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters/{{id-theaters-007}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters",
+										"{{id-theaters-007}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de um cinema com dados inválidos ou ausentes.\n\n**Pré-condição:** O usuário deve estar autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/theaters/{id}.\n    \n- Substituir {id} por um ID válido.\n    \n- Enviar no payload campos inválidos (ex.: capacity como string ou type fora dos valores permitidos) ou omitir campos obrigatórios.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém mensagens de erro indicando os problemas no payload."
+				}
+			],
+			"description": "Esta pasta concentra os testes para o gerenciamento de cinemas cadastrados no sistema, verificando funcionalidades como listagem, detalhamento, criação, atualização e exclusão de cinemas. Os testes garantem que as informações de cada cinema sejam precisas e atualizadas."
+		},
+		{
+			"name": "Sessões",
+			"item": [
+				{
+					"name": "ID: SESSIONS-BE-001 (Listar todas as sessões disponíveis)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Sessions 01\",\r\n  \"email\": \"userSessions01@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userSessions01@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões disponíveis",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions?movie=6860482ddab6dbf660d8669d&theater=6860482ddab6dbf660d866a1&date=2025-06-29T03:27:16.086Z&limit=10&page=1",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID"
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID"
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a listagem de todas as sessões.\n\n**Pré-condição:**\n\n- Devem existir sessões cadastradas no sistema.\n    \n- Paramters:\n    \n    - Filtrar por ID do filme e teatro\n        \n    - Filtrar por data (YYYY-MM-DD)\n        \n    - Número de sessões a retornar - _Valor padrão_ : 10\n        \n    - Número da página - _Valor padrão_ : 1\n        \n\n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/sessions.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém uma lista de sessões de filmes."
+				},
+				{
+					"name": "ID: SESSIONS-BE-002 (Obter detalhes de uma sessão específica)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Sessions 02\",\r\n  \"email\": \"userSessions02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userSessions02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obter detalhes de uma sessão específica",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions/{{id-sessions-002}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions",
+										"{{id-sessions-002}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica os detalhes de uma sessão.\n\n**Pré-condição:** O ID da sessão deve existir.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/sessions/{id}.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém os detalhes completos da sessão."
+				},
+				{
+					"name": "ID: SESSIONS-BE-003 (Criar uma nova sessão (administrador))",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Sessions 03\",\r\n  \"email\": \"userAdminSessions03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminSessions03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie Sessions 03\",\r\n  \"synopsis\": \"Test movie sessions 03\",\r\n  \"director\": \"Testador do Movie Sessions 03\",\r\n  \"genres\": [\r\n    \"Drama\"\r\n  ],\r\n  \"duration\": 300,\r\n  \"classification\": \"16\",\r\n  \"poster\": \"filmeTestSessions03.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test Sessions 003\",\r\n  \"capacity\": 300,\r\n  \"type\": \"3D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova sessão (administrador)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"movie\": \"{{id-movie-sessions-003}}\",\r\n  \"theater\": \"{{id-theater-sessions-003}}\",\r\n  \"datetime\": \"2025-06-29T03:49:48.809Z\",\r\n  \"fullPrice\": 30,\r\n  \"halfPrice\": 15\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de uma nova sessão.\n\n**Pré-condição:** O usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/sessions.\n    \n- Enviar no payload os dados da sessão (filme, cinema, horário, etc.).\n    \n\n**Resultado Esperado:**\n\n- Retorna status 201 (Created).\n    \n- A resposta contém os detalhes da sessão criada."
+				},
+				{
+					"name": "ID: SESSIONS-BE-004 (Atualizar informações de uma sessão existente (administrador))",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Sessions 04\",\r\n  \"email\": \"userAdminSessions04@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminSessions04@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie Sessions 04\",\r\n  \"synopsis\": \"Test movie sessions 04\",\r\n  \"director\": \"Testador do Movie Sessions 04\",\r\n  \"genres\": [\r\n    \"Drama\"\r\n  ],\r\n  \"duration\": 400,\r\n  \"classification\": \"14\",\r\n  \"poster\": \"filmeTestSessions04.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test Sessions 004\",\r\n  \"capacity\": 400,\r\n  \"type\": \"IMAX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova sessão para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"movie\": \"{{id-movie-sessions-004}}\",\r\n  \"theater\": \"{{id-theater-sessions-004}}\",\r\n  \"datetime\": \"2025-06-29T03:49:48.809Z\",\r\n  \"fullPrice\": 40,\r\n  \"halfPrice\": 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar informações de uma sessão existente (administrador)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"movie\": \"{{id-movie-sessions-004}}\",\r\n  \"theater\": \"{{id-theater-sessions-004}}\",\r\n  \"datetime\": \"2026-04-04T04:01:12.807Z\",\r\n  \"fullPrice\": 400,\r\n  \"halfPrice\": 200\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/sessions/{{id-sessions-004}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions",
+										"{{id-sessions-004}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de uma sessão.\n\n**Pré-condição:** A sessão deve existir e o usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/sessions/{id}.\n    \n- Enviar no payload os dados atualizados da sessão.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém “Session updated successfully” e dados da sessão atualizada."
+				},
+				{
+					"name": "ID: SESSIONS-BE-005 (Excluir uma sessão existente (administrador))",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Sessions 05\",\r\n  \"email\": \"userAdminSessions05@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminSessions05@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie Sessions 05\",\r\n  \"synopsis\": \"Test movie sessions 05\",\r\n  \"director\": \"Testador do Movie Sessions 05\",\r\n  \"genres\": [\r\n    \"Action\"\r\n  ],\r\n  \"duration\": 500,\r\n  \"classification\": \"15\",\r\n  \"poster\": \"filmeTestSessions05.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test Sessions 005\",\r\n  \"capacity\": 500,\r\n  \"type\": \"3D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova sessão para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"movie\": \"{{id-movie-sessions-005}}\",\r\n  \"theater\": \"{{id-theater-sessions-005}}\",\r\n  \"datetime\": \"2025-06-29T03:49:48.809Z\",\r\n  \"fullPrice\": 50,\r\n  \"halfPrice\": 25\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir uma sessão existente (administrador)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions/{{id-sessions-005}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions",
+										"{{id-sessions-005}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a exclusão de uma sessão.\n\n**Pré-condição:** A sessão deve existir e o usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição DELETE na rota /api/v1/sessions/{id}.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- Retorna a mensagem: “Session deleted successfully”."
+				},
+				{
+					"name": "ID: SESSIONS-BE-006 (Tentar criar uma nova sessão com payload inválido ou ausente)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Sessions 06\",\r\n  \"email\": \"userAdminSessions06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminSessions06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tentar criar uma nova sessão com payload inválido ou ausente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"movie\": \"\",\r\n  \"theater\": \"006\",\r\n  \"datetime\": \"2025-06-29T04:12:59.412Z\",\r\n  \"fullPrice\": 0,\r\n  \"halfPrice\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de uma nova sessão com dados inválidos ou ausentes.\n\n**Pré-condição:** O usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/sessions.\n    \n- Enviar no payload campos inválidos (ex.: filme inexistente, horário no formato errado) ou omitir campos obrigatórios.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém: Invalid input data “/ mensagens de erro detalhando os problemas no payload.”"
+				},
+				{
+					"name": "ID: SESSIONS-BE-007 (Tentar atualizar uma sessão com payload inválido ou ausente)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Sessions 07\",\r\n  \"email\": \"userAdminSessions07@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminSessions07@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie Sessions 07\",\r\n  \"synopsis\": \"Test movie sessions 07\",\r\n  \"director\": \"Testador do Movie Sessions 07\",\r\n  \"genres\": [\r\n    \"Action\"\r\n  ],\r\n  \"duration\": 700,\r\n  \"classification\": \"17\",\r\n  \"poster\": \"filmeTestSessions07.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test Sessions 007\",\r\n  \"capacity\": 700,\r\n  \"type\": \"IMAX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova sessão para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"movie\": \"{{id-movie-sessions-007}}\",\r\n  \"theater\": \"{{id-theater-sessions-007}}\",\r\n  \"datetime\": \"2025-06-29T03:49:48.809Z\",\r\n  \"fullPrice\": 70,\r\n  \"halfPrice\": 35\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tentar atualizar uma sessão com payload inválido ou ausente",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"movie\": \"{{id-movie-sessions-004}}\",\r\n  \"theater\": \"{{id-theater-sessions-004}}\",\r\n  \"datetime\": \"\",\r\n  \"fullPrice\": 0,\r\n  \"halfPrice\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/sessions/{{id-sessions-007}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions",
+										"{{id-sessions-007}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de uma sessão com dados inválidos ou ausentes.\n\n**Pré-condição:** A sessão deve existir, e o usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/sessions/{id}.\n    \n- Substituir “{id}” por um ID válido.\n    \n- Enviar no payload campos inválidos (ex.: data em formato errado ou cinema não existente) ou omitir campos obrigatórios.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém “Invalid input data” / mensagens de erro indicando os problemas no payload."
+				}
+			],
+			"description": "Reúne os testes dos endpoints responsáveis pelo gerenciamento de sessões de filmes. Inclui operações para listar, detalhar, criar, atualizar e excluir sessões. O foco é validar a disponibilidade e as configurações das sessões de exibição."
+		},
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "ID: RESERVATIONS-BE-001 (Listar todas as reservas (somente administrador))",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Reservations 01\",\r\n  \"email\": \"userAdminReservations01@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminReservations01@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as reservas (somente administrador)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/reservations?page=1&limit=10",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of reservations to return. Default value : 10"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a listagem de todas as reservas.\n\n**Pré-condição:**\n\n- O usuário deve ser um administrador e devem existir reservas no sistema.\n    \n- **Parameters:**\n    \n    - Authorization; page; limit.\n        \n\n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/reservations.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém uma lista de todas as reservas."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-002 (Obter reservas do usuário autenticado)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Reservations 02\",\r\n  \"email\": \"userReservations02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userReservations02@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-002}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 5,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obter reservas do usuário autenticado",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/reservations/me",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a reserva do usuário autenticado.\n\n**Pré-condição:** O usuário deve estar autenticado e ter reservas registradas.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/reservations/me.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém uma lista de reservas do usuário."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-003 (Obter detalhes de uma reserva específica)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Reservations 03\",\r\n  \"email\": \"userReservations03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userReservations03@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-003}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 1,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obter detalhes de uma reserva específica",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/reservations/{{id-reservations-003}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations",
+										"{{id-reservations-003}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica os detalhes de uma reserva específica.\n\n**Pré-condição:** A reserva deve existir.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/reservations/{id}.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta contém os detalhes da reserva."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-004 (Criar uma nova reserva)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Reservations 04\",\r\n  \"email\": \"userReservations04@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userReservations04@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-004}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 4,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de uma nova reserva.\n\n**Pré-condição:** O usuário deve estar autenticado.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/reservations.\n    \n- Enviar no payload os dados da reserva (assentos, sessão, etc.).\n    \n\n**Resultado Esperado:**\n\n- Retorna status 201 (Created).\n    \n- A resposta contém os detalhes da reserva criada."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-005 (Atualizar status de uma reserva (somente administrador))",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Reservations 05\",\r\n  \"email\": \"userAdminReservations05@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminReservations05@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-005}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 5,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar status de uma reserva (somente administrador)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"pending\",\r\n  \"paymentStatus\": \"pending\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations/{{id-reservations-005}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations",
+										"{{id-reservations-005}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de status de uma reserva.\n\n**Pré-condição:** A reserva deve existir e o usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/reservations/{id}.\n    \n- Enviar no payload o novo status da reserva e o status do pagamento.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- A resposta confirma a atualização da reserva e retornar seus dados."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-006 (Excluir uma reserva existente (somente administrador))",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Reservations 06\",\r\n  \"email\": \"userAdminReservations06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminReservations06@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-006}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 6,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir uma reserva existente (somente administrador)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/reservations/{{id-reservations-006}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations",
+										"{{id-reservations-006}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a exclusão de uma reserva.\n\n**Pré-condição:** A reserva deve existir e o usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição DELETE na rota /api/v1/reservations/{id}.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK).\n    \n- Retorna a mensagem de sucesso “Reservation deleted successfully“."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-007 (Tentar obter reservas do usuário atual sem autenticação)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Reservations 07\",\r\n  \"email\": \"userReservations07@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userReservations07@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-007}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 7,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tentar obter reservas do usuário atual sem autenticação",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/reservations/me",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica se é possível obter reservas do usuário atual sem autenticação.\n\n**Pré-condição:** O usuário não deve estar autenticado.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/reservations/me sem incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 401 (Unauthorized).\n    \n- A resposta contém uma mensagem de erro informando a necessidade de autenticação."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-008 (Tentar obter detalhes de uma reserva inexistente)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Reservations 08\",\r\n  \"email\": \"userReservations08@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userReservations08@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-008}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 8,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tentar obter detalhes de uma reserva inexistente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/reservations/{{id-reservations-008}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations",
+										"{{id-reservations-008}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica se é possível obter detalhes de uma reserva inexistente.\n\n**Pré-condição:** A reserva com o ID fornecido não deve existir.  \n**Passos:**\n\n- Fazer uma requisição GET na rota /api/v1/reservations/{id} substituindo {id} por um ID inválido ou inexistente.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 404 (Not Found).\n    \n- A resposta contém uma mensagem de erro informando que a reserva não foi encontrada."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-009 (Tentar criar uma nova reserva com dados inválidos ou ausentes)",
+					"item": [
+						{
+							"name": "Registro de usuário para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Test Reservations 09\",\r\n  \"email\": \"userReservations09@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/register",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userReservations09@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tentar criar uma nova reserva com dados inválidos ou ausentes",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"9\",\r\n      \"number\": 0,\r\n      \"type\": \"\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica se é possível criar uma nova reserva com dados inválidos ou ausentes.\n\n**Pré-condição:** O usuário deve estar autenticado.  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/reservations.\n    \n- Enviar no payload dados inválidos (ex.: assentos inexistentes ou sessão inválida) ou omitir campos obrigatórios.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém mensagens de erro indicando os problemas no payload."
+				},
+				{
+					"name": "ID: RESERVATIONS-BE-010 (Tentar atualizar o status de uma reserva com valor inválido)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Reservations 10\",\r\n  \"email\": \"userAdminReservations10@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminReservations10@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar todas as sessões para pegar id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "6860482ddab6dbf660d8669d",
+											"description": "Filter by movie ID",
+											"disabled": true
+										},
+										{
+											"key": "theater",
+											"value": "6860482ddab6dbf660d866a1",
+											"description": "Filter by theater ID",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-06-29T03:27:16.086Z",
+											"description": "Filter by date (YYYY-MM-DD)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of sessions to return. Default value : 10",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number. Default value : 1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-010}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 10,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tentar atualizar o status de uma reserva com valor inválido",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"tomorrow\",\r\n  \"paymentStatus\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations/{{id-reservations-010}}",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations",
+										"{{id-reservations-010}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a atualização de uma reserva com valor inválido.\n\n**Pré-condição:** A reserva deve existir, e o usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/reservations/{id} substituindo {id} por um ID válido.\n    \n- Enviar no payload um status inválido (ex.: valores fora do padrão permitido).\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém uma mensagem de erro detalhando que o status fornecido é inválido."
+				}
+			],
+			"description": "Esta pasta contém os testes relacionados ao módulo de reservas. Abrange funcionalidades para listar reservas, obter detalhes, criar novas reservas, atualizar status e excluir reservas. Também inclui testes para cenários de erro, como tentativas de acesso sem autenticação ou com dados inválidos."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{AUTH-TOKEN-LOGIN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "AUTH-TOKEN-REGISTER",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjA0OTQ2ZjFjOTIwNjI2ODk2YTJlOSIsImlhdCI6MTc1MTE0MDY3OCwiZXhwIjoxNzUxMjI3MDc4fQ.fycxRr7NthWpJYaZ8CKpeWsU734OF6G4gv01eLJwJWI",
+			"type": "string"
+		},
+		{
+			"key": "AUTH-TOKEN-LOGIN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjA0YjIxZjFjOTIwNjI2ODk2YTJlYyIsImlhdCI6MTc1MTE0MTIyMiwiZXhwIjoxNzUxMjI3NjIyfQ.orOw9Bixcj2lacYXzeBSvoP391rzpY5JovfZ-SFw7gE",
+			"type": "string"
+		},
+		{
+			"key": "id-user-002",
+			"value": "686094b13c6e291469b74817",
+			"type": "string"
+		},
+		{
+			"key": "id-user-003",
+			"value": "686095973c6e291469b74820",
+			"type": "string"
+		},
+		{
+			"key": "id-user-006",
+			"value": "686099083c6e291469b7483c",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-002",
+			"value": "686048323b745e0bcc4ca992",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-004",
+			"value": "6860a5433c6e291469b748a9",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-005",
+			"value": "6860a6313c6e291469b748b4",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-007",
+			"value": "6860a8233c6e291469b748c7",
+			"type": "string"
+		},
+		{
+			"key": "id-theaters-002",
+			"value": "6860482ddab6dbf660d866a1",
+			"type": "string"
+		},
+		{
+			"key": "id-theaters-004",
+			"value": "6860b04c3c6e291469b748f1",
+			"type": "string"
+		},
+		{
+			"key": "id-theaters-005",
+			"value": "6860b1353c6e291469b748fb",
+			"type": "string"
+		},
+		{
+			"key": "id-theaters-007",
+			"value": "6860b2943c6e291469b7490b",
+			"type": "string"
+		},
+		{
+			"key": "id-sessions-002",
+			"value": "6860482ddab6dbf660d866a5",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-sessions-003",
+			"value": "6860b8c73c6e291469b74958",
+			"type": "string"
+		},
+		{
+			"key": "id-theater-sessions-003",
+			"value": "6860b9373c6e291469b7495b",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-sessions-004",
+			"value": "6860ba053c6e291469b74967",
+			"type": "string"
+		},
+		{
+			"key": "id-theater-sessions-004",
+			"value": "6860ba383c6e291469b7496a",
+			"type": "string"
+		},
+		{
+			"key": "id-sessions-004",
+			"value": "6860ba773c6e291469b7496f",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-sessions-005",
+			"value": "6860bbd03c6e291469b74979",
+			"type": "string"
+		},
+		{
+			"key": "id-theater-sessions-005",
+			"value": "6860bc113c6e291469b7497c",
+			"type": "string"
+		},
+		{
+			"key": "id-sessions-005",
+			"value": "6860bc4a3c6e291469b74981",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-sessions-007",
+			"value": "6860beb43c6e291469b74991",
+			"type": "string"
+		},
+		{
+			"key": "id-theater-sessions-007",
+			"value": "6860bedd3c6e291469b74994",
+			"type": "string"
+		},
+		{
+			"key": "id-sessions-007",
+			"value": "6860bf003c6e291469b74999",
+			"type": "string"
+		},
+		{
+			"key": "id-session-reservations-002",
+			"value": "6860482ddab6dbf660d866a5",
+			"type": "string"
+		},
+		{
+			"key": "id-session-reservations-003",
+			"value": "6860482ddab6dbf660d866a5",
+			"type": "string"
+		},
+		{
+			"key": "id-reservations-003",
+			"value": "6860c8f93c6e291469b749dc",
+			"type": "string"
+		},
+		{
+			"key": "id-session-reservations-004",
+			"value": "6860482ddab6dbf660d866b6",
+			"type": "string"
+		},
+		{
+			"key": "id-session-reservations-005",
+			"value": "686048333b745e0bcc4ca9aa",
+			"type": "string"
+		},
+		{
+			"key": "id-reservations-005",
+			"value": "6860cae13c6e291469b74a02",
+			"type": "string"
+		},
+		{
+			"key": "id-session-reservations-006",
+			"value": "6860482ddab6dbf660d866af",
+			"type": "string"
+		},
+		{
+			"key": "id-reservations-006",
+			"value": "6860cc153c6e291469b74a18",
+			"type": "string"
+		},
+		{
+			"key": "id-session-reservations-007",
+			"value": "6860482ddab6dbf660d866b1",
+			"type": "string"
+		},
+		{
+			"key": "id-session-reservations-008",
+			"value": "6860482ddab6dbf660d866a7",
+			"type": "string"
+		},
+		{
+			"key": "id-reservations-008",
+			"value": "68615bba8b303ef81b1e4939",
+			"type": "string"
+		},
+		{
+			"key": "id-session-reservations-010",
+			"value": "6860482ddab6dbf660d866b4",
+			"type": "string"
+		},
+		{
+			"key": "id-reservations-010",
+			"value": "68615e308b303ef81b1e4951",
+			"type": "string"
+		}
+	]
+}
