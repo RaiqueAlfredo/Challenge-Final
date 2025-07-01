@@ -1,0 +1,14 @@
+{
+    "session_valido": {
+        "movie": "{{movie_id}}",
+        "theater": "{{theater_id}}",
+        "datetime": "2025-07-01T03:49:48.809Z",
+        "fullPrice": 30,
+        "halfPrice": 15
+    },
+    "session_invalido": {
+        "datetime": "data-inválida",
+        "fullPrice": "não-é-número",
+        "halfPrice": -5
+    }
+}

@@ -4,6 +4,8 @@ Documentation    Keywords para ações gerais
 Resource    ../../support/base.robot
 Resource    ../../keywords/authentication_keywords.resource
 Resource    ../../keywords/movies_keywords.resource
+Resource    ../../keywords/theaters_keywords.resource
+Resource    ../../keywords/sessions_keywords.resource
 
 *** Keywords ***
 # Para validar o status code retornado no teste
@@ -40,29 +42,38 @@ Payload login com credenciais inválidas
     ${dados_login_inv}    Set Variable    ${json["user_login_inv"]}
     Set Test Variable    ${dados_login_inv}
 
-# Payload abaixo para criar filme com dados válidos
+# Payload abaixo para teste de criar filme com dados válidos e depois com dados inválidos
 Payload criar filme com dados válidos
     ${json}    Importar JSON static    json_movie.json
     ${dados_movie_valido}    Set Variable    ${json["movie_valido"]}
     Set Test Variable    ${dados_movie_valido}
-
-# Payload abaixo para teste de criar filme com dados inválidos
 Payload criar filme com dados inválidos
     ${json}    Importar JSON static    json_movie.json
     ${dados_movie_inv}    Set Variable    ${json["movie_inv"]}
     Set Test Variable    ${dados_movie_inv}
 
-# Payload abaixo para teste de criar cinema com dados válidos
+# Payload abaixo para teste de criar cinema com dados válidos e depois com dados inválidos
 Payload criar cinema com dados válidos
     ${json}    Importar JSON static    json_theater.json
     ${dados_theater_valido}    Set Variable    ${json["theater_valido"]}
     Set Test Variable    ${dados_theater_valido}
-
-# Payload abaixo pra teste de criar cinema com dados inválidos
 Payload criar cinema com dados inválidos
     ${json}    Importar JSON static    json_theater.json
     ${dados_theater_inv}    Set Variable    ${json["theater_invalido"]}
     Set Test Variable    ${dados_theater_inv}
+
+# Payload abaixo para teste de criar sessão com dados válidos e depois com dados inválidos
+Payload criar sessão com dados válidos
+    [Arguments]    ${filme_id}=${movie_id}    ${cinema_id}=${theater_id}
+    ${json}    Importar JSON static    json_session.json
+    ${dados_session_valido}    Set Variable    ${json["session_valido"]}
+    Set To Dictionary    ${dados_session_valido}    movie=${filme_id}
+    Set To Dictionary    ${dados_session_valido}    theater=${cinema_id}
+    Set Test Variable    ${dados_session_valido}
+Payload criar sessão com dados inválidos
+    ${json}    Importar JSON static    json_session.json
+    ${dados_session_inv}    Set Variable    ${json["session_invalido"]}
+    Set Test Variable    ${dados_session_inv}
 
 # Helpers
 Login usuário comum
@@ -91,3 +102,33 @@ Reset movie from database
     ${movie_id}    Inserir filme no banco e pegar ID    ${dados_movie_valido}
     Set Test Variable    ${movie_id}
     Set Test Variable    ${movie_title}
+Criar novo theater
+    Login usuário admin
+    Payload criar cinema com dados válidos
+    POST endpoint /theaters
+    Validar se o cinema foi criado corretamente
+    Validar Status Code "201"
+Reset theater from database
+    Payload criar cinema com dados válidos
+    ${theater_name}    Set Variable    ${dados_theater_valido}[name]
+    Remove theater from database    ${theater_name}
+    Criar novo theater
+Criar nova session
+    Login usuário admin
+    Payload criar sessão com dados válidos
+    POST endpoint /sessions
+    Validar se criou uma nova sessão corretamente
+    Validar Status Code "201"
+Reset session from database
+    # Preparar dados para identificar sessions antigas
+    Payload criar filme com dados válidos
+    Payload criar cinema com dados válidos
+    ${movie_title}    Set Variable    ${dados_movie_valido}[title]
+    ${theater_name}    Set Variable    ${dados_theater_valido}[name]
+    # Remover apenas sessions que usam esse movie/theater específico
+    Remove sessions by movie title and theater name    ${movie_title}    ${theater_name}
+    # Resetar movie e theater (cria novos)
+    Reset movie from database
+    Reset theater from database
+    # Criar nova session
+    Criar nova session

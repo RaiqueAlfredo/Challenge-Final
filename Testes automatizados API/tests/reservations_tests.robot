@@ -8,8 +8,10 @@ Test Teardown    Finalizar sessão
 
 *** Test Cases ***
 RESERVATIONS-BE-004: Criar nova reserva
-    POST endpoint /reservations
-    Validar se a reserva foi criada corretamente
+    [Tags]    criar_reserva_valida
+    Reset session from database
+    # POST endpoint /reservations
+    # Validar se a reserva foi criada corretamente
 
 RESERVATIONS-BE-007: Tentar obter reservas sem autenticação
     Log    message

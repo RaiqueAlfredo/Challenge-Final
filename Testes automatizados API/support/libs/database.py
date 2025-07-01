@@ -1,5 +1,6 @@
 from robot.api.deco import keyword
 from pymongo import MongoClient
+from bson import ObjectId
 import bcrypt
 
 client = MongoClient('mongodb+srv://raiquepereira04:xperience@apicinema.8a8m4gx.mongodb.net/?retryWrites=true&w=majority&appName=APICinema')
@@ -26,6 +27,7 @@ def remove_movie(movie_title):
         print(f'No movie found with title: {movie_title}')
         return None
 
+
 @keyword('Insert movie from database')
 def insert_movie(movie):
     doc = {
@@ -42,3 +44,55 @@ def insert_movie(movie):
     result = movies.insert_one(doc)
     print(f'Movie inserted with ID: {result.inserted_id}')
     return str(result.inserted_id)
+
+
+@keyword('Remove theater from database')
+def remove_theater(theater_name):
+    theaters = db['theaters']
+    
+    # Buscar o theater antes de remover
+    theater_to_remove = theaters.find_one({'name': theater_name})
+    
+    if theater_to_remove:
+        theater_id = theater_to_remove['_id']
+        print(f'Found theater with ID: {theater_id} and name: {theater_name}')
+        
+        # Remover o theater
+        result = theaters.delete_many({'name': theater_name})
+        print(f'Removed {result.deleted_count} theater(s) with name: {theater_name}')
+        
+        return str(theater_id)
+    else:
+        print(f'No theater found with name: {theater_name}')
+        return None
+    
+    
+@keyword('Remove sessions by movie title and theater name')
+def remove_sessions_by_names(movie_title, theater_name):
+    # Buscar movie pelo título
+    movies = db['movies']
+    movie = movies.find_one({'title': movie_title})
+    
+    # Buscar theater pelo nome
+    theaters = db['theaters']
+    theater = theaters.find_one({'name': theater_name})
+    
+    if movie and theater:
+        movie_id = movie['_id']
+        theater_id = theater['_id']
+        
+        print(f'Found movie "{movie_title}" with ID: {movie_id}')
+        print(f'Found theater "{theater_name}" with ID: {theater_id}')
+        
+        # Remover apenas sessions que usam esses IDs específicos
+        sessions = db['sessions']
+        result = sessions.delete_many({
+            'movie': movie_id,
+            'theater': theater_id
+        })
+        
+        print(f'Removed {result.deleted_count} session(s) for this movie/theater combination')
+        return result.deleted_count
+    else:
+        print(f'Movie "{movie_title}" or theater "{theater_name}" not found')
+        return 0
