@@ -10,7 +10,6 @@ Test Teardown    Finalizar sessão
 MOVIE-BE-002: Visualizar detalhes do filme
     [Tags]    ver_detalhes_filme
     Reset movie from database
-    Criar novo filme
     Login usuário comum
     GET endpoint /movies/id-movie
     Validar se o filme foi detalhado corretamente

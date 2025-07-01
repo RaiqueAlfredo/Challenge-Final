@@ -6,16 +6,15 @@ Resource    ../support/base.robot
 *** Keywords ***
 # MOVIE-BE-002: Visualizar detalhes do filme
 GET endpoint /movies/id-movie
-    [Arguments]    ${id}=${movie-id}
+    [Arguments]    ${id}=${movie_id}
     ${resp}    GET On Session    
     ...    alias=${ALIAS_BASE}
     ...    url=/movies/${id}
     ...    headers=${headers}
     Log    Response: ${resp.json()}
     Set Test Variable    ${resp}
-
 Validar se o filme foi detalhado corretamente
-    [Arguments]    ${id}=${movie-id}    ${title}=${movie-title}
+    [Arguments]    ${id}=${movie_id}    ${title}=${movie_title}
     Should Be Equal    ${resp.json()["success"]}    ${True}
     Should Be Equal    ${resp.json()["data"]["_id"]}    ${id}
     Should Be Equal    ${resp.json()["data"]["title"]}    ${title}

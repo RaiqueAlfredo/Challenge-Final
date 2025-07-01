@@ -58,8 +58,6 @@ Login usuário comum
     POST endpoint /auth/Login    ${dados_login_user}
     Validar se o login foi realizado com sucesso
     Validar Status Code "200"
-    ${auth_token_admin}  Set Variable  ${EMPTY}
-    Iniciar sessão
 Login usuário admin
     Payload login usuário admin
     POST endpoint /auth/Login    ${dados_login_admin}
@@ -68,35 +66,16 @@ Login usuário admin
     ${auth_token_admin}    Set Variable    ${resp.json()["data"]["token"]}
     Set Global Variable    ${auth_token_admin}
     Iniciar sessão
-POST endpoint /movies
-    [Documentation]    Criando um novo filme com dados válidos para pegar seu id
-    [Arguments]    ${payload}=${dados_movie_valido}
-    ${resp}    POST On Session    
-    ...    alias=${ALIAS_BASE}
-    ...    url=/movies
-    ...    json=&{payload}
-    ...    headers=${headers}
-    Log    Response: ${resp.json()}
-    Set Test Variable    ${resp}
-Validar se o filme foi criado corretamente e pegar seu id
-    Should Be Equal    ${resp.json()["success"]}    ${True}
-    Should Not Be Empty    ${resp.json()["data"]}
-    Log    success: ${resp.json()["success"]}
-    Log    data: ${resp.json()["data"]}
-    ${movie-id}    Set Variable    ${resp.json()["data"]["id"]}
-    Set Test Variable    ${movie-id}
-    ${movie-title}    Set Variable    ${resp.json()["data"]["title"]}
-    Set Test Variable    ${movie-title}
-    Log    id: ${movie-id}
-    Log    title: ${movie-title}
-Criar novo filme
-    Login usuário admin
-    Payload criar filme com dados válidos
-    POST endpoint /movies
-    Validar se o filme foi criado corretamente e pegar seu id
-    Validar Status Code "201"
-
+Inserir filme no banco e pegar ID
+    [Arguments]    ${movie_data}
+    ${movie_id}    Insert movie from database    ${movie_data}
+    Set Test Variable    ${movie_id}
+    Log    Movie inserted with ID: ${movie_id}
+    RETURN    ${movie_id}
 Reset movie from database
     Payload criar filme com dados válidos
-    Clean movie from database    ${dados_movie_valido}[title]
-    # Insert movie from database    ${movie}
+    ${movie_title}    Set Variable    ${dados_movie_valido}[title]
+    Remove movie from database    ${movie_title}
+    ${movie_id}    Inserir filme no banco e pegar ID    ${dados_movie_valido}
+    Set Test Variable    ${movie_id}
+    Set Test Variable    ${movie_title}
