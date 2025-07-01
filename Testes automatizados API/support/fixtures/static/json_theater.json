@@ -1,0 +1,12 @@
+{
+    "theater_valido": {
+        "name": "Theaters Valido",
+        "capacity": 100,
+        "type": "3D"
+    },
+    "theater_invalido": {
+        "name": "",
+        "capacity": 0,
+        "type": "type invalido"
+    }
+}

@@ -52,6 +52,18 @@ Payload criar filme com dados inválidos
     ${dados_movie_inv}    Set Variable    ${json["movie_inv"]}
     Set Test Variable    ${dados_movie_inv}
 
+# Payload abaixo para teste de criar cinema com dados válidos
+Payload criar cinema com dados válidos
+    ${json}    Importar JSON static    json_theater.json
+    ${dados_theater_valido}    Set Variable    ${json["theater_valido"]}
+    Set Test Variable    ${dados_theater_valido}
+
+# Payload abaixo pra teste de criar cinema com dados inválidos
+Payload criar cinema com dados inválidos
+    ${json}    Importar JSON static    json_theater.json
+    ${dados_theater_inv}    Set Variable    ${json["theater_invalido"]}
+    Set Test Variable    ${dados_theater_inv}
+
 # Helpers
 Login usuário comum
     Payload login usuário comum

@@ -14,7 +14,6 @@ MOVIE-BE-002: Visualizar detalhes do filme
     GET endpoint /movies/id-movie
     Validar se o filme foi detalhado corretamente
     Validar Status Code "200"
-
 MOVIE-BE-006: Criar filme com dados inválidos
     [Tags]    criar_movie_inv
     Login usuário admin
