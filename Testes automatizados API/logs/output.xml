@@ -1,23 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3 (Python 3.13.4 on win32)" generated="2025-06-30T20:57:07.988173" rpa="false" schemaversion="5">
-<suite id="s1" name="Authentication Tests" source="C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\tests\authentication_tests.robot">
-<test id="s1-t1" name="AUTH-BE-007: Login com credenciais inválidas" line="24">
+<robot generator="Robot 7.3 (Python 3.13.4 on win32)" generated="2025-07-01T00:29:23.755734" rpa="false" schemaversion="5">
+<suite id="s1" name="Movie Tests" source="C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\tests\movie_tests.robot">
+<test id="s1-t1" name="MOVIE-BE-002: Visualizar detalhes do filme" line="10">
 <kw name="Iniciar sessão" owner="base" type="SETUP">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${auth_token_admin}' != '${EMPTY}'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${auth_token_admin}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.378727" elapsed="0.000345"/>
+</kw>
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-06-30T20:57:08.416158" level="INFO">Creating Session using : alias=Cinema App API, url=http://localhost:5000/api/v1, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-07-01T00:29:24.379385" level="INFO">Creating Session using : alias=Cinema App API, url=http://localhost:5000/api/v1, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=${ALIAS_BASE}</arg>
 <arg>url=${URL_BASE}</arg>
 <arg>headers=${headers}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-06-30T20:57:08.415942" elapsed="0.000372"/>
+<status status="PASS" start="2025-07-01T00:29:24.379188" elapsed="0.000348"/>
 </kw>
-<status status="PASS" start="2025-06-30T20:57:08.415391" elapsed="0.000988"/>
+<status status="PASS" start="2025-07-01T00:29:24.378210" elapsed="0.001379"/>
 </kw>
-<kw name="Payload login com credenciais inválidas" owner="common">
+<kw name="Reset movie from database" owner="common">
+<kw name="Payload criar filme com dados válidos" owner="common">
 <kw name="Importar JSON static" owner="common">
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2025-06-30T20:57:08.417330" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_auth.json"&gt;C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_auth.json&lt;/a&gt;'.</msg>
-<msg time="2025-06-30T20:57:08.417532" level="INFO">${arquivo} = {
+<msg time="2025-07-01T00:29:24.380475" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_movie.json"&gt;C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_movie.json&lt;/a&gt;'.</msg>
+<msg time="2025-07-01T00:29:24.380691" level="INFO">${arquivo} = {
+    "movie_valido": {
+        "title": "Filme Para Teste",
+        "synopsis": "Sinopse do Filme",
+        "director": "Testador de Filme",
+        "genres": [
+            "Science Fiction"
+        ...</msg>
+<var>${arquivo}</var>
+<arg>C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados API\\support\\common/../../support/fixtures/static/${nome_arquivo}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.380360" elapsed="0.000353"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.380997" level="INFO">${data} = {'movie_valido': {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmeP...</msg>
+<var>${data}</var>
+<arg>json.loads('''${arquivo}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.380796" elapsed="0.000222"/>
+</kw>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2025-07-01T00:29:24.381059" elapsed="0.000037"/>
+</return>
+<msg time="2025-07-01T00:29:24.381197" level="INFO">${json} = {'movie_valido': {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmeP...</msg>
+<var>${json}</var>
+<arg>json_movie.json</arg>
+<status status="PASS" start="2025-07-01T00:29:24.380204" elapsed="0.001010"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.381548" level="INFO">${dados_movie_valido} = {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmePoster.png', 'rele...</msg>
+<var>${dados_movie_valido}</var>
+<arg>${json["movie_valido"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.381289" elapsed="0.000278"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.381764" level="INFO">${dados_movie_valido} = {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmePoster.png', 'rele...</msg>
+<arg>${dados_movie_valido}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.381646" elapsed="0.000145"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.380011" elapsed="0.001812"/>
+</kw>
+<kw name="Clean movie from database" owner="database">
+<arg>${dados_movie_valido}[title]</arg>
+<status status="PASS" start="2025-07-01T00:29:24.381882" elapsed="0.321422"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.379790" elapsed="0.323615"/>
+</kw>
+<kw name="Criar novo filme" owner="common">
+<kw name="Login usuário admin" owner="common">
+<kw name="Payload login usuário admin" owner="common">
+<kw name="Importar JSON static" owner="common">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-07-01T00:29:24.704836" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_auth.json"&gt;C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_auth.json&lt;/a&gt;'.</msg>
+<msg time="2025-07-01T00:29:24.705082" level="INFO">${arquivo} = {
     "user_login":{
         "email": "user@example.com",
         "password": "password123"
@@ -30,146 +96,628 @@
 <var>${arquivo}</var>
 <arg>C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados API\\support\\common/../../support/fixtures/static/${nome_arquivo}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.417214" elapsed="0.000341"/>
+<status status="PASS" start="2025-07-01T00:29:24.704700" elapsed="0.000405"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.417832" level="INFO">${data} = {'user_login': {'email': 'user@example.com', 'password': 'password123'}, 'admin_login': {'email': 'admin@example.com', 'password': 'password123'}, 'user_email_dup': {'email': 'user@example.com', 'pass...</msg>
+<msg time="2025-07-01T00:29:24.705405" level="INFO">${data} = {'user_login': {'email': 'user@example.com', 'password': 'password123'}, 'admin_login': {'email': 'admin@example.com', 'password': 'password123'}, 'user_email_dup': {'email': 'user@example.com', 'pass...</msg>
 <var>${data}</var>
 <arg>json.loads('''${arquivo}''')</arg>
 <arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.417638" elapsed="0.000215"/>
+<status status="PASS" start="2025-07-01T00:29:24.705199" elapsed="0.000226"/>
 </kw>
 <return>
 <value>${data}</value>
-<status status="PASS" start="2025-06-30T20:57:08.417891" elapsed="0.000035"/>
+<status status="PASS" start="2025-07-01T00:29:24.705463" elapsed="0.000041"/>
 </return>
-<msg time="2025-06-30T20:57:08.418015" level="INFO">${json} = {'user_login': {'email': 'user@example.com', 'password': 'password123'}, 'admin_login': {'email': 'admin@example.com', 'password': 'password123'}, 'user_email_dup': {'email': 'user@example.com', 'pass...</msg>
+<msg time="2025-07-01T00:29:24.705594" level="INFO">${json} = {'user_login': {'email': 'user@example.com', 'password': 'password123'}, 'admin_login': {'email': 'admin@example.com', 'password': 'password123'}, 'user_email_dup': {'email': 'user@example.com', 'pass...</msg>
 <var>${json}</var>
 <arg>json_auth.json</arg>
-<status status="PASS" start="2025-06-30T20:57:08.416803" elapsed="0.001229"/>
+<status status="PASS" start="2025-07-01T00:29:24.704508" elapsed="0.001103"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.418385" level="INFO">${dados_login_inv} = {'email': 'invalidEmail.com', 'password': ''}</msg>
-<var>${dados_login_inv}</var>
-<arg>${json["user_login_inv"]}</arg>
+<msg time="2025-07-01T00:29:24.705970" level="INFO">${dados_login_admin} = {'email': 'admin@example.com', 'password': 'password123'}</msg>
+<var>${dados_login_admin}</var>
+<arg>${json["admin_login"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.418109" elapsed="0.000294"/>
+<status status="PASS" start="2025-07-01T00:29:24.705686" elapsed="0.000302"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.418598" level="INFO">${dados_login_inv} = {'email': 'invalidEmail.com', 'password': ''}</msg>
-<arg>${dados_login_inv}</arg>
+<msg time="2025-07-01T00:29:24.706204" level="INFO">${dados_login_admin} = {'email': 'admin@example.com', 'password': 'password123'}</msg>
+<arg>${dados_login_admin}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.418487" elapsed="0.000139"/>
+<status status="PASS" start="2025-07-01T00:29:24.706075" elapsed="0.000265"/>
 </kw>
-<status status="PASS" start="2025-06-30T20:57:08.416578" elapsed="0.002081"/>
+<status status="PASS" start="2025-07-01T00:29:24.704320" elapsed="0.002060"/>
 </kw>
-<kw name="POST endpoint /auth/login com credenciais inválidas" owner="authentication_keywords">
+<kw name="POST endpoint /auth/Login" owner="authentication_keywords">
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T20:57:08.445221" level="INFO">POST Request : url=http://localhost:5000/api/v1/auth/login 
+<msg time="2025-07-01T00:29:24.784512" level="INFO">POST Request : url=http://localhost:5000/api/v1/auth/login 
  path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '45'} 
- body=b'{"email": "invalidEmail.com", "password": ""}' 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
+ body=b'{"email": "admin@example.com", "password": "password123"}' 
  </msg>
-<msg time="2025-06-30T20:57:08.445297" level="INFO">POST Response : url=http://localhost:5000/api/v1/auth/login 
- status=401, reason=Unauthorized 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '55', 'ETag': 'W/"37-5uDpJTljPBecOPs/j7OXFdPRcmQ"', 'Date': 'Mon, 30 Jun 2025 23:57:08 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":false,"message":"Invalid email or password"} 
+<msg time="2025-07-01T00:29:24.784609" level="INFO">POST Response : url=http://localhost:5000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '303', 'ETag': 'W/"12f-dxcc/LZVwksP7KQlZjZYlKpX/5s"', 'Date': 'Tue, 01 Jul 2025 03:29:24 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"6862ef38839c6cf2b35c727d","name":"Admin User","email":"admin@example.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es"}} 
  </msg>
-<msg time="2025-06-30T20:57:08.445380" level="INFO">${resp} = &lt;Response [401]&gt;</msg>
+<msg time="2025-07-01T00:29:24.784711" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <var>${resp}</var>
 <arg>alias=${ALIAS_BASE}</arg>
 <arg>url=/auth/login</arg>
 <arg>json=&amp;{payload}</arg>
 <arg>headers=${headers}</arg>
-<arg>expected_status=${status_code_desejado}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.419016" elapsed="0.026382"/>
+<status status="PASS" start="2025-07-01T00:29:24.706673" elapsed="0.078063"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.445811" level="INFO">Response: {'success': False, 'message': 'Invalid email or password'}</msg>
+<msg time="2025-07-01T00:29:24.785273" level="INFO">Response: {'success': True, 'data': {'_id': '6862ef38839c6cf2b35c727d', 'name': 'Admin User', 'email': 'admin@example.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es'}}</msg>
 <arg>Response: ${resp.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.445503" elapsed="0.000340"/>
+<status status="PASS" start="2025-07-01T00:29:24.784875" elapsed="0.000441"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.446034" level="INFO">${resp} = &lt;Response [401]&gt;</msg>
+<msg time="2025-07-01T00:29:24.785547" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <arg>${resp}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.445926" elapsed="0.000136"/>
+<status status="PASS" start="2025-07-01T00:29:24.785424" elapsed="0.000150"/>
 </kw>
-<status status="PASS" start="2025-06-30T20:57:08.418824" elapsed="0.027277"/>
+<arg>${dados_login_admin}</arg>
+<status status="PASS" start="2025-07-01T00:29:24.706469" elapsed="0.079144"/>
 </kw>
-<kw name="Validar se retorna mensagem informando que as credenciais são inválidas" owner="authentication_keywords">
-<kw name="Should Be Equal" owner="BuiltIn">
+<kw name="Validar se o login foi realizado com sucesso" owner="authentication_keywords">
+<kw name="Should Be True" owner="BuiltIn">
 <arg>${resp.json()["success"]}</arg>
-<arg>${False}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.446520" elapsed="0.000307"/>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.785889" elapsed="0.000610"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${resp.json()["message"]}</arg>
-<arg>Invalid email or password</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.446908" elapsed="0.000284"/>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.786813" level="INFO">Length is 171.</msg>
+<arg>${resp.json()["data"]["token"]}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.786580" elapsed="0.000262"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.787177" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es</msg>
+<var>${token}</var>
+<arg>${resp.json()["data"]["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.786917" elapsed="0.000279"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.787666" level="INFO">${auth_token_user} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es</msg>
+<arg>${auth_token_user}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.787275" elapsed="0.000420"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.447503" level="INFO">success: False</msg>
+<msg time="2025-07-01T00:29:24.788005" level="INFO">success: True</msg>
 <arg>success: ${resp.json()["success"]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.447268" elapsed="0.000263"/>
+<status status="PASS" start="2025-07-01T00:29:24.787768" elapsed="0.000266"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.447830" level="INFO">message: Invalid email or password</msg>
-<arg>message: ${resp.json()["message"]}</arg>
+<msg time="2025-07-01T00:29:24.788175" level="INFO">token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es</msg>
+<arg>token: ${token}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.447604" elapsed="0.000253"/>
+<status status="PASS" start="2025-07-01T00:29:24.788105" elapsed="0.000096"/>
 </kw>
-<status status="PASS" start="2025-06-30T20:57:08.446315" elapsed="0.001577"/>
+<status status="PASS" start="2025-07-01T00:29:24.785722" elapsed="0.002512"/>
 </kw>
-<kw name="Validar Status Code &quot;401&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Validar Status Code &quot;200&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${resp.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.448221" elapsed="0.000591"/>
+<status status="PASS" start="2025-07-01T00:29:24.788522" elapsed="0.000486"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.449135" level="INFO">Status Code: 401</msg>
+<msg time="2025-07-01T00:29:24.789156" level="INFO">Status Code: 200</msg>
 <arg>Status Code: ${statuscode}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.449029" elapsed="0.000144"/>
+<status status="PASS" start="2025-07-01T00:29:24.789084" elapsed="0.000098"/>
 </kw>
-<status status="PASS" start="2025-06-30T20:57:08.448040" elapsed="0.001182"/>
+<status status="PASS" start="2025-07-01T00:29:24.788331" elapsed="0.000885"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.789531" level="INFO">${auth_token_admin} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es</msg>
+<var>${auth_token_admin}</var>
+<arg>${resp.json()["data"]["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.789279" elapsed="0.000270"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.789743" level="INFO">${auth_token_admin} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es</msg>
+<arg>${auth_token_admin}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.789624" elapsed="0.000144"/>
+</kw>
+<kw name="Iniciar sessão" owner="base">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${auth_token_admin}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.790337" elapsed="0.000116"/>
+</kw>
+<arg>'${auth_token_admin}' != '${EMPTY}'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${auth_token_admin}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.790021" elapsed="0.000467"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-07-01T00:29:24.790716" level="INFO">Creating Session using : alias=Cinema App API, url=http://localhost:5000/api/v1, headers={'accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=${ALIAS_BASE}</arg>
+<arg>url=${URL_BASE}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-07-01T00:29:24.790561" elapsed="0.000341"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.789854" elapsed="0.001090"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.704084" elapsed="0.086888"/>
+</kw>
+<kw name="Payload criar filme com dados válidos" owner="common">
+<kw name="Importar JSON static" owner="common">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-07-01T00:29:24.791517" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_movie.json"&gt;C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_movie.json&lt;/a&gt;'.</msg>
+<msg time="2025-07-01T00:29:24.791736" level="INFO">${arquivo} = {
+    "movie_valido": {
+        "title": "Filme Para Teste",
+        "synopsis": "Sinopse do Filme",
+        "director": "Testador de Filme",
+        "genres": [
+            "Science Fiction"
+        ...</msg>
+<var>${arquivo}</var>
+<arg>C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados API\\support\\common/../../support/fixtures/static/${nome_arquivo}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.791419" elapsed="0.000339"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.792019" level="INFO">${data} = {'movie_valido': {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmeP...</msg>
+<var>${data}</var>
+<arg>json.loads('''${arquivo}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.791839" elapsed="0.000199"/>
+</kw>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2025-07-01T00:29:24.792072" elapsed="0.000025"/>
+</return>
+<msg time="2025-07-01T00:29:24.792179" level="INFO">${json} = {'movie_valido': {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmeP...</msg>
+<var>${json}</var>
+<arg>json_movie.json</arg>
+<status status="PASS" start="2025-07-01T00:29:24.791240" elapsed="0.000955"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.792537" level="INFO">${dados_movie_valido} = {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmePoster.png', 'rele...</msg>
+<var>${dados_movie_valido}</var>
+<arg>${json["movie_valido"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.792268" elapsed="0.000288"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.792736" level="INFO">${dados_movie_valido} = {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmePoster.png', 'rele...</msg>
+<arg>${dados_movie_valido}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.792631" elapsed="0.000130"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.791055" elapsed="0.001739"/>
+</kw>
+<kw name="POST endpoint /movies" owner="common">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-07-01T00:29:24.833796" level="INFO">POST Request : url=http://localhost:5000/api/v1/movies 
+ path_url=/api/v1/movies 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es', 'Content-Length': '223'} 
+ body=b'{"title": "Filme Para Teste", "synopsis": "Sinopse do Filme", "director": "Testador de Filme", "genres": ["Science Fiction"], "duration": 200, "classification": "R", "poster": "FilmePoster.png", "releaseDate": "2025-06-30"}' 
+ </msg>
+<msg time="2025-07-01T00:29:24.833853" level="INFO">POST Response : url=http://localhost:5000/api/v1/movies 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '397', 'ETag': 'W/"18d-t5HelJFvVtWDIN8W5A7RR7b5Yf0"', 'Date': 'Tue, 01 Jul 2025 03:29:24 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"title":"Filme Para Teste","synopsis":"Sinopse do Filme","director":"Testador de Filme","genres":["Science Fiction"],"duration":200,"classification":"R","poster":"FilmePoster.png","releaseDate":"2025-06-30T00:00:00.000Z","_id":"68635614471006b1384e92d6","createdAt":"2025-07-01T03:29:24.811Z","updatedAt":"2025-07-01T03:29:24.811Z","__v":0,"id":"68635614471006b1384e92d6"}} 
+ </msg>
+<msg time="2025-07-01T00:29:24.833938" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<var>${resp}</var>
+<arg>alias=${ALIAS_BASE}</arg>
+<arg>url=/movies</arg>
+<arg>json=&amp;{payload}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.793056" elapsed="0.040904"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.834439" level="INFO">Response: {'success': True, 'data': {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmePoster.png', 'releaseDate': '2025-06-30T00:00:00.000Z', '_id': '68635614471006b1384e92d6', 'createdAt': '2025-07-01T03:29:24.811Z', 'updatedAt': '2025-07-01T03:29:24.811Z', '__v': 0, 'id': '68635614471006b1384e92d6'}}</msg>
+<arg>Response: ${resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.834074" elapsed="0.000406"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.834670" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<arg>${resp}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.834568" elapsed="0.000129"/>
+</kw>
+<doc>Criando um novo filme com dados válidos para pegar seu id</doc>
+<status status="PASS" start="2025-07-01T00:29:24.792872" elapsed="0.041859"/>
+</kw>
+<kw name="Validar se o filme foi criado corretamente e pegar seu id" owner="common">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resp.json()["success"]}</arg>
+<arg>${True}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.835013" elapsed="0.000292"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.835623" level="INFO">Length is 13.</msg>
+<arg>${resp.json()["data"]}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.835381" elapsed="0.000273"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.835961" level="INFO">success: True</msg>
+<arg>success: ${resp.json()["success"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.835724" elapsed="0.000264"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.836299" level="INFO">data: {'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmePoster.png', 'releaseDate': '2025-06-30T00:00:00.000Z', '_id': '68635614471006b1384e92d6', 'createdAt': '2025-07-01T03:29:24.811Z', 'updatedAt': '2025-07-01T03:29:24.811Z', '__v': 0, 'id': '68635614471006b1384e92d6'}</msg>
+<arg>data: ${resp.json()["data"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.836059" elapsed="0.000300"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.836682" level="INFO">${movie-id} = 68635614471006b1384e92d6</msg>
+<var>${movie-id}</var>
+<arg>${resp.json()["data"]["id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.836432" elapsed="0.000267"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.836872" level="INFO">${movie-id} = 68635614471006b1384e92d6</msg>
+<arg>${movie-id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.836775" elapsed="0.000121"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.837213" level="INFO">${movie-title} = Filme Para Teste</msg>
+<var>${movie-title}</var>
+<arg>${resp.json()["data"]["title"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.836970" elapsed="0.000261"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.837398" level="INFO">${movie-title} = Filme Para Teste</msg>
+<arg>${movie-title}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.837304" elapsed="0.000118"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.837557" level="INFO">id: 68635614471006b1384e92d6</msg>
+<arg>id: ${movie-id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.837489" elapsed="0.000092"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.837711" level="INFO">title: Filme Para Teste</msg>
+<arg>title: ${movie-title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.837645" elapsed="0.000090"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.834838" elapsed="0.002931"/>
+</kw>
+<kw name="Validar Status Code &quot;201&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${resp.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.838043" elapsed="0.000490"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.838675" level="INFO">Status Code: 201</msg>
+<arg>Status Code: ${statuscode}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.838607" elapsed="0.000093"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.837856" elapsed="0.000876"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.703746" elapsed="0.135013"/>
+</kw>
+<kw name="Login usuário comum" owner="common">
+<kw name="Payload login usuário comum" owner="common">
+<kw name="Importar JSON static" owner="common">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-07-01T00:29:24.839901" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_auth.json"&gt;C:\Users\raiqu\Desktop\Nero\Estágio\Challenge Final\Challenge Final\Testes automatizados API\support\fixtures\static\json_auth.json&lt;/a&gt;'.</msg>
+<msg time="2025-07-01T00:29:24.840158" level="INFO">${arquivo} = {
+    "user_login":{
+        "email": "user@example.com",
+        "password": "password123"
+    },
+    "admin_login":{
+        "email": "admin@example.com",
+        "password": "password123"
+    },
+  ...</msg>
+<var>${arquivo}</var>
+<arg>C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados API\\support\\common/../../support/fixtures/static/${nome_arquivo}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.839747" elapsed="0.000438"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.840498" level="INFO">${data} = {'user_login': {'email': 'user@example.com', 'password': 'password123'}, 'admin_login': {'email': 'admin@example.com', 'password': 'password123'}, 'user_email_dup': {'email': 'user@example.com', 'pass...</msg>
+<var>${data}</var>
+<arg>json.loads('''${arquivo}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.840292" elapsed="0.000230"/>
+</kw>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2025-07-01T00:29:24.840558" elapsed="0.000027"/>
+</return>
+<msg time="2025-07-01T00:29:24.840668" level="INFO">${json} = {'user_login': {'email': 'user@example.com', 'password': 'password123'}, 'admin_login': {'email': 'admin@example.com', 'password': 'password123'}, 'user_email_dup': {'email': 'user@example.com', 'pass...</msg>
+<var>${json}</var>
+<arg>json_auth.json</arg>
+<status status="PASS" start="2025-07-01T00:29:24.839517" elapsed="0.001168"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.841049" level="INFO">${dados_login_user} = {'email': 'user@example.com', 'password': 'password123'}</msg>
+<var>${dados_login_user}</var>
+<arg>${json["user_login"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.840760" elapsed="0.000307"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.841256" level="INFO">${dados_login_user} = {'email': 'user@example.com', 'password': 'password123'}</msg>
+<arg>${dados_login_user}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.841149" elapsed="0.000133"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.839287" elapsed="0.002029"/>
+</kw>
+<kw name="POST endpoint /auth/Login" owner="authentication_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-07-01T00:29:24.917263" level="INFO">POST Request : url=http://localhost:5000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es', 'Content-Length': '56'} 
+ body=b'{"email": "user@example.com", "password": "password123"}' 
+ </msg>
+<msg time="2025-07-01T00:29:24.917340" level="INFO">POST Response : url=http://localhost:5000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '303', 'ETag': 'W/"12f-Y7g4mQCTBG6wRKLdE4zlsILRok4"', 'Date': 'Tue, 01 Jul 2025 03:29:24 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"6862ef38839c6cf2b35c727e","name":"Regular User","email":"user@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZSIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.qs8ijeKsODVUUriN7fbvbnR-kueTjNTUkfdmnK-oBPo"}} 
+ </msg>
+<msg time="2025-07-01T00:29:24.917533" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>alias=${ALIAS_BASE}</arg>
+<arg>url=/auth/login</arg>
+<arg>json=&amp;{payload}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.841631" elapsed="0.075929"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.918134" level="INFO">Response: {'success': True, 'data': {'_id': '6862ef38839c6cf2b35c727e', 'name': 'Regular User', 'email': 'user@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZSIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.qs8ijeKsODVUUriN7fbvbnR-kueTjNTUkfdmnK-oBPo'}}</msg>
+<arg>Response: ${resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.917714" elapsed="0.000460"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.918415" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<arg>${resp}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.918283" elapsed="0.000166"/>
+</kw>
+<arg>${dados_login_user}</arg>
+<status status="PASS" start="2025-07-01T00:29:24.841401" elapsed="0.077096"/>
+</kw>
+<kw name="Validar se o login foi realizado com sucesso" owner="authentication_keywords">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${resp.json()["success"]}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.918835" elapsed="0.000266"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.919440" level="INFO">Length is 171.</msg>
+<arg>${resp.json()["data"]["token"]}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.919195" elapsed="0.000278"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.919804" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZSIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.qs8ijeKsODVUUriN7fbvbnR-kueTjNTUkfdmnK-oBPo</msg>
+<var>${token}</var>
+<arg>${resp.json()["data"]["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.919550" elapsed="0.000272"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.920009" level="INFO">${auth_token_user} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZSIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.qs8ijeKsODVUUriN7fbvbnR-kueTjNTUkfdmnK-oBPo</msg>
+<arg>${auth_token_user}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.919899" elapsed="0.000136"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.920358" level="INFO">success: True</msg>
+<arg>success: ${resp.json()["success"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.920107" elapsed="0.000282"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.920536" level="INFO">token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZSIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.qs8ijeKsODVUUriN7fbvbnR-kueTjNTUkfdmnK-oBPo</msg>
+<arg>token: ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.920465" elapsed="0.000098"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.918630" elapsed="0.001967"/>
+</kw>
+<kw name="Validar Status Code &quot;200&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${resp.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.920883" elapsed="0.000499"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.921557" level="INFO">Status Code: 200</msg>
+<arg>Status Code: ${statuscode}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.921482" elapsed="0.000102"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.920685" elapsed="0.000932"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.921932" level="INFO">${auth_token_admin} = </msg>
+<var>${auth_token_admin}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.921682" elapsed="0.000266"/>
+</kw>
+<kw name="Iniciar sessão" owner="base">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${auth_token_admin}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.922589" elapsed="0.000116"/>
+</kw>
+<arg>'${auth_token_admin}' != '${EMPTY}'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${auth_token_admin}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.922264" elapsed="0.000477"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-07-01T00:29:24.922962" level="INFO">Creating Session using : alias=Cinema App API, url=http://localhost:5000/api/v1, headers={'accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=${ALIAS_BASE}</arg>
+<arg>url=${URL_BASE}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-07-01T00:29:24.922812" elapsed="0.000248"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.922036" elapsed="0.001066"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.839037" elapsed="0.084092"/>
+</kw>
+<kw name="GET endpoint /movies/id-movie" owner="movies_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-07-01T00:29:24.960547" level="INFO">GET Request : url=http://localhost:5000/api/v1/movies/68635614471006b1384e92d6 
+ path_url=/api/v1/movies/68635614471006b1384e92d6 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJlZjM4ODM5YzZjZjJiMzVjNzI3ZCIsImlhdCI6MTc1MTM0MDU2NCwiZXhwIjoxNzUxNDI2OTY0fQ.I7plS7l3JhbqMFdnA7iqem4Us_mzS4unVBDqgITM-es'} 
+ body=None 
+ </msg>
+<msg time="2025-07-01T00:29:24.960611" level="INFO">GET Response : url=http://localhost:5000/api/v1/movies/68635614471006b1384e92d6 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '411', 'ETag': 'W/"19b-RRfSroHKdIDLlArDjQ9anSpY8kI"', 'Date': 'Tue, 01 Jul 2025 03:29:24 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68635614471006b1384e92d6","title":"Filme Para Teste","synopsis":"Sinopse do Filme","director":"Testador de Filme","genres":["Science Fiction"],"duration":200,"classification":"R","poster":"FilmePoster.png","releaseDate":"2025-06-30T00:00:00.000Z","createdAt":"2025-07-01T03:29:24.811Z","updatedAt":"2025-07-01T03:29:24.811Z","__v":0,"sessions":[],"id":"68635614471006b1384e92d6"}} 
+ </msg>
+<msg time="2025-07-01T00:29:24.960743" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>alias=${ALIAS_BASE}</arg>
+<arg>url=/movies/${id}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.923534" elapsed="0.037228"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.961211" level="INFO">Response: {'success': True, 'data': {'_id': '68635614471006b1384e92d6', 'title': 'Filme Para Teste', 'synopsis': 'Sinopse do Filme', 'director': 'Testador de Filme', 'genres': ['Science Fiction'], 'duration': 200, 'classification': 'R', 'poster': 'FilmePoster.png', 'releaseDate': '2025-06-30T00:00:00.000Z', 'createdAt': '2025-07-01T03:29:24.811Z', 'updatedAt': '2025-07-01T03:29:24.811Z', '__v': 0, 'sessions': [], 'id': '68635614471006b1384e92d6'}}</msg>
+<arg>Response: ${resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.960865" elapsed="0.000389"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.961453" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<arg>${resp}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.961344" elapsed="0.000138"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.923307" elapsed="0.038214"/>
+</kw>
+<kw name="Validar se o filme foi detalhado corretamente" owner="movies_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resp.json()["success"]}</arg>
+<arg>${True}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.961949" elapsed="0.000323"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resp.json()["data"]["_id"]}</arg>
+<arg>${id}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.962356" elapsed="0.000284"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resp.json()["data"]["title"]}</arg>
+<arg>${title}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.962719" elapsed="0.000271"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.963313" level="INFO">success: True</msg>
+<arg>success: ${resp.json()["success"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.963064" elapsed="0.000279"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.963652" level="INFO">_id: 68635614471006b1384e92d6</msg>
+<arg>_id: ${resp.json()["data"]["_id"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.963414" elapsed="0.000267"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.963979" level="INFO">title: Filme Para Teste</msg>
+<arg>title: ${resp.json()["data"]["title"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.963749" elapsed="0.000258"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.961701" elapsed="0.002342"/>
+</kw>
+<kw name="Validar Status Code &quot;200&quot;" owner="common" source_name="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${resp.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.964435" elapsed="0.000514"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-01T00:29:24.965100" level="INFO">Status Code: 200</msg>
+<arg>Status Code: ${statuscode}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-01T00:29:24.965025" elapsed="0.000440"/>
+</kw>
+<status status="PASS" start="2025-07-01T00:29:24.964225" elapsed="0.001276"/>
 </kw>
 <kw name="Finalizar sessão" owner="base" type="TEARDOWN">
 <kw name="Delete All Sessions" owner="RequestsLibrary">
-<msg time="2025-06-30T20:57:08.449668" level="INFO">Deleting All Sessions</msg>
+<msg time="2025-07-01T00:29:24.965998" level="INFO">Deleting All Sessions</msg>
 <doc>Removes all the session objects</doc>
-<status status="PASS" start="2025-06-30T20:57:08.449623" elapsed="0.000101"/>
+<status status="PASS" start="2025-07-01T00:29:24.965954" elapsed="0.000107"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T20:57:08.449854" level="INFO">Sessões encerradas.</msg>
+<msg time="2025-07-01T00:29:24.966193" level="INFO">Sessões encerradas.</msg>
 <arg>Sessões encerradas.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T20:57:08.449801" elapsed="0.000081"/>
+<status status="PASS" start="2025-07-01T00:29:24.966134" elapsed="0.000087"/>
 </kw>
-<status status="PASS" start="2025-06-30T20:57:08.449444" elapsed="0.000472"/>
+<status status="PASS" start="2025-07-01T00:29:24.965746" elapsed="0.000511"/>
 </kw>
-<tag>login_inválido</tag>
-<status status="PASS" start="2025-06-30T20:57:08.414787" elapsed="0.035219"/>
+<tag>ver_detalhes_filme</tag>
+<status status="PASS" start="2025-07-01T00:29:24.377522" elapsed="0.588805"/>
 </test>
-<doc>Cenários de testes candidatos à automação para o módulo de "Authentication"</doc>
-<status status="PASS" start="2025-06-30T20:57:07.989386" elapsed="0.461092"/>
+<doc>Cenários de testes candidatos à automação para o módulo de "Movies"</doc>
+<status status="PASS" start="2025-07-01T00:29:23.756931" elapsed="1.209768"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">login_inválido</stat>
+<stat pass="1" fail="0" skip="0">ver_detalhes_filme</stat>
 </tag>
 <suite>
-<stat name="Authentication Tests" id="s1" pass="1" fail="0" skip="0">Authentication Tests</stat>
+<stat name="Movie Tests" id="s1" pass="1" fail="0" skip="0">Movie Tests</stat>
 </suite>
 </statistics>
 <errors>

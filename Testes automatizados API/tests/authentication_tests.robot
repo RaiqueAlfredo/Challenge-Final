@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation    Cenários de testes candidatos à automação para o módulo de "Authentication"
+
 Resource        ../keywords/authentication_keywords.resource
 
 Test Setup    Iniciar sessão
