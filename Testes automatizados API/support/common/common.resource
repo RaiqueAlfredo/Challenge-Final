@@ -137,6 +137,10 @@ Reset theater from database
     ${theater_name}    Set Variable    ${dados_theater_valido}[name]
     Remove theater from database    ${theater_name}
     Criar novo theater
+Remover theater do database para o teste
+    Payload criar cinema com dados válidos
+    ${theater_name}    Set Variable    ${dados_theater_valido}[name]
+    Remove theater from database    ${theater_name}
 
 # Helpers abaixo para resetar a sessão no banco de dados
 Criar nova session

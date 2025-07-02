@@ -9,6 +9,7 @@ Test Teardown    Finalizar sessão
 *** Test Cases ***
 THEATERS-BE-003: Criar cinema com dados válidos
     [Tags]    criar_cinema_valido
+    Remover theater do database para o teste
     Login usuário admin
     Payload criar cinema com dados válidos
     POST endpoint /theaters

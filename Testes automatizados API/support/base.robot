@@ -17,7 +17,6 @@ Resource    ../support/common/common.resource
 Iniciar sessão
     Run Keyword If    '${auth_token}' != '${EMPTY}'    Set To Dictionary    ${headers}    Authorization=Bearer ${auth_token}
     Create Session    alias=${ALIAS_BASE}    url=${URL_BASE}    headers=${headers}
-
 Finalizar sessão
     Delete All Sessions
     Log    Sessões encerradas.

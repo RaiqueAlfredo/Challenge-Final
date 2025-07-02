@@ -2,11 +2,19 @@ from robot.api.deco import keyword
 from pymongo import MongoClient
 from bson import ObjectId
 from datetime import datetime, timezone
+from dotenv import load_dotenv
 import bcrypt
+import os
 
-client = MongoClient('mongodb+srv://raiquepereira04:xperience@apicinema.8a8m4gx.mongodb.net/?retryWrites=true&w=majority&appName=APICinema')
+# Carregar variáveis de ambiente
+load_dotenv()
 
-db = client['test']
+# Configuração do MongoDB usando variáveis de ambiente
+MONGODB_URI = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
+MONGODB_DATABASE = os.getenv('MONGODB_DATABASE', 'test')
+
+client = MongoClient(MONGODB_URI)
+db = client[MONGODB_DATABASE]
 
 @keyword('Remove movie from database')
 def remove_movie(movie_title):

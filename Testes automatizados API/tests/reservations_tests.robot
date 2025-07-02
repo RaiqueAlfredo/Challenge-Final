@@ -23,7 +23,7 @@ RESERVATIONS-BE-007: Tentar obter reservas sem autenticação
     Validar se retornou mensagem de erro informando a necessidade de autenticação
     Validar Status Code "401"
 RESERVATIONS-BE-009: Criar reserva com payload inválido
-    [Tags]    criar_reserva_inv
+    [Tags]    criar_reserva_inv    bug_conhecido
     Login usuário comum
     Payload criar reserva com dados inválidos
     POST endpoint /reservations com payload inválido
