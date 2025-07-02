@@ -8,7 +8,8 @@ Test Teardown    Finalizar sessão
 
 *** Test Cases ***
 USER-BE-002: Obter detalhes de usuário por ID
-    Log    message
+    Login usuário admin
+    Registrar usuário para o teste
 
 USER-BE-003: Excluir usuário por ID
     Log    message

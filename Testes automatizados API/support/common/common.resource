@@ -42,7 +42,7 @@ Payload login com credenciais inválidas
     ${dados_login_inv}    Set Variable    ${json["user_login_inv"]}
     Set Test Variable    ${dados_login_inv}
 
-# Payload abaixo para teste de criar filme com dados válidos e depois com dados inválidos
+# Payloads abaixo para teste de criar filme com dados válidos e dados inválidos
 Payload criar filme com dados válidos
     ${json}    Importar JSON static    json_movie.json
     ${dados_movie_valido}    Set Variable    ${json["movie_valido"]}
@@ -52,7 +52,7 @@ Payload criar filme com dados inválidos
     ${dados_movie_inv}    Set Variable    ${json["movie_inv"]}
     Set Test Variable    ${dados_movie_inv}
 
-# Payload abaixo para teste de criar cinema com dados válidos e depois com dados inválidos
+# Payloads abaixo para teste de criar cinema com dados válidos e com dados inválidos
 Payload criar cinema com dados válidos
     ${json}    Importar JSON static    json_theater.json
     ${dados_theater_valido}    Set Variable    ${json["theater_valido"]}
@@ -62,7 +62,7 @@ Payload criar cinema com dados inválidos
     ${dados_theater_inv}    Set Variable    ${json["theater_invalido"]}
     Set Test Variable    ${dados_theater_inv}
 
-# Payload abaixo para teste de criar sessão com dados válidos e depois com dados inválidos
+# Payloads abaixo para teste de criar sessão com dados válidos e dados inválidos
 Payload criar sessão com dados válidos
     [Arguments]    ${filme_id}=${movie_id}    ${cinema_id}=${theater_id}
     ${json}    Importar JSON static    json_session.json
@@ -75,19 +75,35 @@ Payload criar sessão com dados inválidos
     ${dados_session_inv}    Set Variable    ${json["session_invalido"]}
     Set Test Variable    ${dados_session_inv}
 
+# Payloads abaixo para teste de criar reserva com dados válidos e dados inválidos
+Payload criar reserva com dados válidos
+    [Arguments]    ${sessão_id}=${session_id}
+    ${json}    Importar JSON static    json_reservation.json
+    ${dados_reserva_valido}    Set Variable    ${json["reserva_valido"]}
+    Set To Dictionary    ${dados_reserva_valido}    session=${sessão_id}
+    Set Test Variable    ${dados_reserva_valido}
+Payload criar reserva com dados inválidos
+    ${json}    Importar JSON static    json_reservation.json
+    ${dados_reserva_inv}    Set Variable    ${json["reserva_invalido"]}
+    Set Test Variable    ${dados_reserva_inv}
+
 # Helpers
 Login usuário comum
     Payload login usuário comum
     POST endpoint /auth/Login    ${dados_login_user}
     Validar se o login foi realizado com sucesso
     Validar Status Code "200"
+    ${auth_token}    Set Variable    ${resp.json()["data"]["token"]}
+    Set Global Variable    ${auth_token}
+    Iniciar sessão
+
 Login usuário admin
     Payload login usuário admin
     POST endpoint /auth/Login    ${dados_login_admin}
     Validar se o login foi realizado com sucesso
     Validar Status Code "200"
-    ${auth_token_admin}    Set Variable    ${resp.json()["data"]["token"]}
-    Set Global Variable    ${auth_token_admin}
+    ${auth_token}    Set Variable    ${resp.json()["data"]["token"]}
+    Set Global Variable    ${auth_token}
     Iniciar sessão
 Inserir filme no banco e pegar ID
     [Arguments]    ${movie_data}

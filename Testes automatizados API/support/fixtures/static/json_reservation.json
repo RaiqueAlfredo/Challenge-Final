@@ -1,0 +1,20 @@
+{
+    "reserva_valido": {
+        "session": "{{session_id}}",
+        "seats": [{
+            "row": "A",
+            "number": 4,
+            "type": "full"
+        }],
+        "paymentMethod": "credit_card"
+    },
+    "reserva_invalido": {
+        "session": "id-inexistente",
+        "seats": [{
+            "row": "",
+            "number": "",
+            "type": "none"
+        }],
+        "paymentMethod": "tomorrow"
+    }
+}

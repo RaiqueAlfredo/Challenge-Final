@@ -17,10 +17,8 @@ POST endpoint /auth/Login
 Validar se o login foi realizado com sucesso
     Should Be True    ${resp.json()["success"]}
     Should Not Be Empty    ${resp.json()["data"]["token"]}
-    ${token}    Set Variable    ${resp.json()["data"]["token"]}
-    Set Test Variable    ${auth_token_user}    ${token}
     Log    success: ${resp.json()["success"]}
-    Log    token: ${token}
+    Log    token: ${resp.json()["data"]["token"]}
 
 # AUTH-BE-006: Registro com e-mail já existente
 POST endpoint /auth/register
