@@ -1,6 +1,7 @@
 from robot.api.deco import keyword
 from pymongo import MongoClient
 from bson import ObjectId
+from datetime import datetime, timezone
 import bcrypt
 
 client = MongoClient('mongodb+srv://raiquepereira04:xperience@apicinema.8a8m4gx.mongodb.net/?retryWrites=true&w=majority&appName=APICinema')
@@ -96,3 +97,46 @@ def remove_sessions_by_names(movie_title, theater_name):
     else:
         print(f'Movie "{movie_title}" or theater "{theater_name}" not found')
         return 0
+    
+
+@keyword('Remove user from database')
+def remove_user(user_name):
+    users = db['users']
+    
+    # Buscar o user antes de remover
+    user_to_remove = users.find_one({'name': user_name})
+    
+    if user_to_remove:
+        user_id = user_to_remove['_id']
+        print(f'Found user with ID: {user_id} and name: {user_name}')
+        
+        # Remover o user
+        result = users.delete_many({'name': user_name})
+        print(f'Removed {result.deleted_count} user(s) with title: {user_name}')
+        
+        return str(user_id)
+    else:
+        print(f'No user found with name: {user_name}')
+        return None
+    
+
+@keyword('Insert user from database')
+def insert_user(user):
+    password_plain = user.get('password', 'qatest321')
+    password_hashed = bcrypt.hashpw(password_plain.encode('utf-8'), bcrypt.gensalt())
+    
+    current_time = datetime.now(timezone.utc)
+
+    doc = {
+        'name': user.get('name', 'User Test'),
+        "email": user.get('email', 'userTest@example.com'),
+        "password": password_hashed.decode('utf-8'),
+        "role": user.get('role', 'user'),
+        "createdAt": current_time,
+        "__v": 0,
+        "updatedAt": current_time
+    }
+    users = db['users']
+    result = users.insert_one(doc)
+    print(f'User inserted with ID: {result.inserted_id}')
+    return str(result.inserted_id)

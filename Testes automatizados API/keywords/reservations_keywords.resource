@@ -5,15 +5,6 @@ Resource    ../support/base.robot
 
 *** Keywords ***
 # RESERVATIONS-BE-004: Criar nova reserva
-Deixar os assentos da sessão disponível para o teste
-    Login usuário admin
-    [Arguments]    ${sessão_id}=${session_id}
-    ${resp}    PUT On Session    
-    ...    alias=${ALIAS_BASE}
-    ...    url=/sessions/${sessão_id}/reset-seats
-    ...    headers=${headers}
-    Log    Response: ${resp.json()}
-    Set Test Variable    ${resp}
 POST endpoint /reservations
     [Arguments]    ${payload}=${dados_reserva_valido}
     ${resp}    POST On Session    

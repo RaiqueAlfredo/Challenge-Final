@@ -6,6 +6,7 @@ Resource    ../../keywords/authentication_keywords.resource
 Resource    ../../keywords/movies_keywords.resource
 Resource    ../../keywords/theaters_keywords.resource
 Resource    ../../keywords/sessions_keywords.resource
+Resource    ../../keywords/users_keywords.resource
 
 *** Keywords ***
 # Para validar o status code retornado no teste
@@ -30,7 +31,11 @@ Payload login usuário admin
     ${dados_login_admin}    Set Variable    ${json["admin_login"]}
     Set Test Variable    ${dados_login_admin}
 
-# Payload abaixo para teste com email duplicado
+# Payloads abaixo para registrar usuário com dados válidos e teste com email duplicado
+Payload registro com dados válidos
+    ${json}    Importar JSON static    json_auth.json
+    ${dados_registro_valido}    Set Variable    ${json["user_valido"]}
+    Set Test Variable    ${dados_registro_valido}
 Payload registro com email duplicado
     ${json}    Importar JSON static    json_auth.json
     ${dados_regis_dup}    Set Variable    ${json["user_email_dup"]}
@@ -87,7 +92,7 @@ Payload criar reserva com dados inválidos
     ${dados_reserva_inv}    Set Variable    ${json["reserva_invalido"]}
     Set Test Variable    ${dados_reserva_inv}
 
-# Helpers
+# Helpers abaixo para login como user comum e como admin
 Login usuário comum
     Payload login usuário comum
     POST endpoint /auth/Login    ${dados_login_user}
@@ -96,7 +101,6 @@ Login usuário comum
     ${auth_token}    Set Variable    ${resp.json()["data"]["token"]}
     Set Global Variable    ${auth_token}
     Iniciar sessão
-
 Login usuário admin
     Payload login usuário admin
     POST endpoint /auth/Login    ${dados_login_admin}
@@ -105,6 +109,8 @@ Login usuário admin
     ${auth_token}    Set Variable    ${resp.json()["data"]["token"]}
     Set Global Variable    ${auth_token}
     Iniciar sessão
+
+# Helpers abaixo para resetar o filme no banco de dados
 Inserir filme no banco e pegar ID
     [Arguments]    ${movie_data}
     ${movie_id}    Insert movie from database    ${movie_data}
@@ -118,6 +124,8 @@ Reset movie from database
     ${movie_id}    Inserir filme no banco e pegar ID    ${dados_movie_valido}
     Set Test Variable    ${movie_id}
     Set Test Variable    ${movie_title}
+    
+# Helpers abaixo para resetar o theater no banco de dados
 Criar novo theater
     Login usuário admin
     Payload criar cinema com dados válidos
@@ -129,6 +137,8 @@ Reset theater from database
     ${theater_name}    Set Variable    ${dados_theater_valido}[name]
     Remove theater from database    ${theater_name}
     Criar novo theater
+
+# Helpers abaixo para resetar a sessão no banco de dados
 Criar nova session
     Login usuário admin
     Payload criar sessão com dados válidos
@@ -148,3 +158,28 @@ Reset session from database
     Reset theater from database
     # Criar nova session
     Criar nova session
+
+# Helpers abaixo para resetar o usuário comum no banco de dados
+Inserir user no banco e pegar ID
+    [Arguments]    ${user_data}
+    ${user_id}    Insert user from database    ${user_data}
+    Set Test Variable    ${user_id}
+    Log    User inserted with ID: ${user_id}
+    RETURN    ${user_id}
+Reset user from database
+    Payload registro com dados válidos
+    ${user_name}    Set Variable    ${dados_registro_valido}[name]
+    Remove user from database    ${user_name}
+    ${user_id}    Inserir user no banco e pegar ID    ${dados_registro_valido}
+    Set Test Variable    ${user_id}
+
+# Helper abaixo para deixar todos os assentos disponíveis na sessão que passar o id
+Deixar os assentos da sessão disponível para o teste
+    Login usuário admin
+    [Arguments]    ${sessão_id}=${session_id}
+    ${resp}    PUT On Session    
+    ...    alias=${ALIAS_BASE}
+    ...    url=/sessions/${sessão_id}/reset-seats
+    ...    headers=${headers}
+    Log    Response: ${resp.json()}
+    Set Test Variable    ${resp}
