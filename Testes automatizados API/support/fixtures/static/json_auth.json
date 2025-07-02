@@ -1,0 +1,23 @@
+{
+    "user_login":{
+        "email": "user@example.com",
+        "password": "password123"
+    },
+    "admin_login":{
+        "email": "admin@example.com",
+        "password": "password123"
+    },
+    "user_valido":{
+        "name": "User Test",
+        "email": "userTest@example.com",
+        "password": "qatest321"
+    },
+    "user_email_dup": {
+        "email": "user@example.com",
+        "password": "qatest321"
+    },
+    "user_login_inv": {
+        "email": "invalidEmail.com",
+        "password": ""
+    }
+}

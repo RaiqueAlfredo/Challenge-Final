@@ -1,0 +1,37 @@
+# Logs e relatórios de execução dos testes
+# Estes arquivos são gerados automaticamente a cada execução
+# e contêm informações específicas de cada run
+logs/
+*.html
+*.xml
+
+# Cache do Python
+# Arquivos compilados do Python que são gerados automaticamente
+# para melhorar performance, mas não devem ser versionados
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Arquivos de ambiente e configuração local
+# Contêm informações sensíveis ou específicas do ambiente local
+.env
+.venv/
+env/
+venv/
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# IDEs e editores
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Arquivos de backup
+*.bak
+*~

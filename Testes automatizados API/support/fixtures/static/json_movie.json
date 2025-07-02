@@ -1,0 +1,26 @@
+{
+    "movie_valido": {
+        "title": "Filme Para Teste",
+        "synopsis": "Sinopse do Filme",
+        "director": "Testador de Filme",
+        "genres": [
+            "Science Fiction"
+        ],
+        "duration": 200,
+        "classification": "R",
+        "poster": "FilmePoster.png",
+        "releaseDate": "2025-06-30"
+    },
+    "movie_inv": {
+        "title": "",
+        "synopsis": "Filme Inválido",
+        "director": "",
+        "genres": [
+            "Invalid Genre"
+        ],
+        "duration": 0,
+        "classification": "",
+        "poster": "invalidPoster",
+        "releaseDate": "2025-06-30"
+    }
+}

@@ -3681,6 +3681,189 @@
 						}
 					],
 					"description": "Este teste verifica a atualização de uma sessão com dados inválidos ou ausentes.\n\n**Pré-condição:** A sessão deve existir, e o usuário deve ser um administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/sessions/{id}.\n    \n- Substituir “{id}” por um ID válido.\n    \n- Enviar no payload campos inválidos (ex.: data em formato errado ou cinema não existente) ou omitir campos obrigatórios.\n    \n- Incluir o token JWT no cabeçalho.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 400 (Bad Request).\n    \n- A resposta contém “Invalid input data” / mensagens de erro indicando os problemas no payload."
+				},
+				{
+					"name": "ID: SESSIONS-BE-008 ( Resetar os assentos de uma sessão existente para disponíveis)",
+					"item": [
+						{
+							"name": "Registro de um admin para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin Sessions 08\",\r\n  \"email\": \"userAdminSessions08@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com credenciais do admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userAdminSessions08@email.com\",\r\n  \"password\": \"qatest321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/auth/login",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo filme para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Movie Sessions 08\",\r\n  \"synopsis\": \"Test movie sessions 08\",\r\n  \"director\": \"Testador do Movie Sessions 08\",\r\n  \"genres\": [\r\n    \"Action\"\r\n  ],\r\n  \"duration\": 800,\r\n  \"classification\": \"18\",\r\n  \"poster\": \"filmeTestSessions08.jpg\",\r\n  \"releaseDate\": \"2025-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/movies",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar um novo cinema para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Theaters Test Sessions 008\",\r\n  \"capacity\": 800,\r\n  \"type\": \"3D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/theaters",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova sessão para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"movie\": \"{{id-movie-sessions-008}}\",\r\n  \"theater\": \"{{id-theater-sessions-008}}\",\r\n  \"datetime\": \"2025-06-29T03:49:48.809Z\",\r\n  \"fullPrice\": 80,\r\n  \"halfPrice\": 40\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/sessions",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar uma nova reserva para o teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session\": \"{{id-sessions-008}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 8,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-BASE}}/reservations",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resetar os assentos de uma sessão existente para disponíveis",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{URL-BASE}}/sessions/{{id-sessions-008}}/reset-seats",
+									"host": [
+										"{{URL-BASE}}"
+									],
+									"path": [
+										"sessions",
+										"{{id-sessions-008}}",
+										"reset-seats"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica o reset de assentos de uma sessão para disponíveis.\n\n**Pré-condição:** A sessão deve existir, e o usuário deve ser autenticado como administrador.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/sessions/{id}/reset-seats.\n    \n- Substituir {id} por um ID válido de sessão.\n    \n- Incluir o token JWT no cabeçalho de autorização.\n    \n\n**Resultado Esperado:**\n\n- Retorna status 200 (OK)\n    \n- Retorna uma mensagem de sucesso informando que os assentos foram resetados para disponíveis."
 				}
 			],
 			"description": "Reúne os testes dos endpoints responsáveis pelo gerenciamento de sessões de filmes. Inclui operações para listar, detalhar, criar, atualizar e excluir sessões. O foco é validar a disponibilidade e as configurações das sessões de exibição."
@@ -5250,6 +5433,21 @@
 		{
 			"key": "id-sessions-007",
 			"value": "6860bf003c6e291469b74999",
+			"type": "string"
+		},
+		{
+			"key": "id-movie-sessions-008",
+			"value": "6862d9d6349d7923e677294f",
+			"type": "string"
+		},
+		{
+			"key": "id-theater-sessions-008",
+			"value": "6862da24349d7923e6772952",
+			"type": "string"
+		},
+		{
+			"key": "id-sessions-008",
+			"value": "6862da55349d7923e6772957",
 			"type": "string"
 		},
 		{
