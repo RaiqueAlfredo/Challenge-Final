@@ -2,12 +2,35 @@
 Documentation        Variáveis globais para selecionar algo especifício na página
 
 *** Variables ***
+# Variáveis para HomePage
+${home_title}    css=main h1
+${logout_button}    css=[class="btn-logout"]
+${profile}    css=nav a:has-text("Perfil")
+
 # Variáveis para LoginPage
 ${login_page_h1}    css=main h1
 ${login_page_email}    id=email
 ${login_page_password}    id=password
 ${login_page_entrar}    css=[class="btn btn-primary login-btn"]
 
-# Variáveis para HomePage
-${home_title}    css=main h1
-${logout_button}    css=[class="btn-logout"]
+# Variáveis para MoviePage
+
+# Variáveis para RegistrationPage
+${register_page_h1}    css=main h1
+${register_page_name}    id=name
+${register_page_email}    id=email
+${register_page_password}    id=password
+${register_page_confirm_password}    id=confirmPassword
+${register_page_button}    css=[class="btn btn-primary"]
+${register_page_alert}    css=[class="alert-content"]
+
+# Variáveis para ReservationPage
+
+# Variáveis para SessionPage
+
+# Variáveis para UserPage
+${user_page_h1}    css=main h1
+${user_page_h2}    xpath=//h2[text()="Informações Pessoais"]
+${user_page_name}    id=name
+${user_page_alert_changes}    css=[class="changed-field"]
+${user_page_alert_succes}    xpath=//main//p[contains(text(), "Perfil atualizado com sucesso")]  

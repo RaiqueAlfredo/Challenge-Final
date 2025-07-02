@@ -1,223 +1,168 @@
-{"level":30,"time":"2025-07-02T18:34:21.445Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Listening on 127.0.0.1:60743"}
-(node:1560) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+{"level":30,"time":"2025-07-02T22:24:33.628Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Listening on 127.0.0.1:55294"}
+(node:23428) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-{"level":30,"time":"2025-07-02T18:34:21.860Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newBrowser"}
-{"level":30,"time":"2025-07-02T18:34:22.028Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Adding browser to stack: chromium, version: 136.0.7103.25"}
-{"level":30,"time":"2025-07-02T18:34:22.028Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method newBrowser"}
-{"level":30,"time":"2025-07-02T18:34:22.028Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Adding 0 contexts to browser"}
-{"level":30,"time":"2025-07-02T18:34:22.034Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:22.034Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2025-07-02T18:34:22.044Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active context"}
-{"level":30,"time":"2025-07-02T18:34:22.140Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
-{"level":30,"time":"2025-07-02T18:34:22.141Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:22.352Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:22.358Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:22.358Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2025-07-02T18:34:22.385Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
-{"level":30,"time":"2025-07-02T18:34:22.385Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:22.487Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:22.490Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:22.490Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:22.552Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:22.557Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.558Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:22.576Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:22.576Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.580Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:22.581Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=email in page."}
-{"level":30,"time":"2025-07-02T18:34:22.592Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:22.595Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:22.595Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=password in page."}
-{"level":30,"time":"2025-07-02T18:34:22.603Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:22.607Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method click"}
-{"level":30,"time":"2025-07-02T18:34:22.607Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=[class=\"btn btn-primary login-btn\"] in page."}
-{"level":30,"time":"2025-07-02T18:34:22.631Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method click"}
-{"level":30,"time":"2025-07-02T18:34:22.634Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:22.634Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:22.637Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:22.640Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.640Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:22.648Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:22.648Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.660Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.660Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:22.668Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:22.668Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.680Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.680Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:22.688Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:22.688Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.700Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.700Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:22.707Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:22.707Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.719Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.719Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:22.748Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Welcome to Cinema App"}
-{"level":30,"time":"2025-07-02T18:34:22.748Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:22.751Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:22.752Z","pid":1560,"hostname":"SKY-P4R4DOXO","Take screenshot with options: ":{"path":"C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados Front-end\\logs\\browser\\screenshot\\robotframework-browser-screenshot-1.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
-{"level":30,"time":"2025-07-02T18:34:22.936Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:22.942Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.946Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.947Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.949Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.951Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.952Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.954Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.956Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.957Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active context"}
-{"level":30,"time":"2025-07-02T18:34:22.958Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changing current active page: page=a0ff4ccc-30b9-464a-b4fe-bfc23ccfa64c"}
-{"level":30,"time":"2025-07-02T18:34:22.958Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:22.959Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method closeContext"}
-{"level":30,"time":"2025-07-02T18:34:22.972Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Removed page=a2a53856-bf9a-4943-9ea3-7389ca8de206 from context=b8ca2089-4a31-40da-a55b-57d1fcbd38a6 page stack"}
-{"level":30,"time":"2025-07-02T18:34:22.973Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Removed page=91dadac7-4976-451a-8338-da037977c920 from context=b8ca2089-4a31-40da-a55b-57d1fcbd38a6 page stack"}
-{"level":30,"time":"2025-07-02T18:34:22.984Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method closeContext"}
-{"level":30,"time":"2025-07-02T18:34:22.987Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.987Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:22.990Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method switchBrowser"}
-{"level":30,"time":"2025-07-02T18:34:22.990Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method switchBrowser"}
-{"level":30,"time":"2025-07-02T18:34:22.992Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:22.992Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2025-07-02T18:34:22.997Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active context"}
-{"level":30,"time":"2025-07-02T18:34:23.073Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
-{"level":30,"time":"2025-07-02T18:34:23.073Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:23.280Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:23.285Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:23.285Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2025-07-02T18:34:23.318Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
-{"level":30,"time":"2025-07-02T18:34:23.318Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:23.424Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:23.427Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:23.427Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.496Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:23.499Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.499Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.514Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:23.514Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.517Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:23.517Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=email in page."}
-{"level":30,"time":"2025-07-02T18:34:23.524Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:23.527Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:23.527Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=password in page."}
-{"level":30,"time":"2025-07-02T18:34:23.533Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:23.536Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method click"}
-{"level":30,"time":"2025-07-02T18:34:23.536Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=[class=\"btn btn-primary login-btn\"] in page."}
-{"level":30,"time":"2025-07-02T18:34:23.564Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method click"}
-{"level":30,"time":"2025-07-02T18:34:23.567Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:23.567Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.570Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:23.572Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.572Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.578Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:23.578Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.591Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.591Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.599Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:23.599Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.611Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.611Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.618Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:23.618Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.630Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.630Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.639Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:23.639Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.651Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.651Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.682Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Welcome to Cinema App"}
-{"level":30,"time":"2025-07-02T18:34:23.683Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.687Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:23.687Z","pid":1560,"hostname":"SKY-P4R4DOXO","Take screenshot with options: ":{"path":"C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados Front-end\\logs\\browser\\screenshot\\robotframework-browser-screenshot-2.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
-{"level":30,"time":"2025-07-02T18:34:23.797Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:23.801Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:23.801Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=[class=\"btn-logout\"] in page."}
-{"level":30,"time":"2025-07-02T18:34:23.803Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:23.807Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:23.807Z","pid":1560,"hostname":"SKY-P4R4DOXO","Take screenshot with options: ":{"path":"C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados Front-end\\logs\\browser\\screenshot\\robotframework-browser-screenshot-3.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
-{"level":30,"time":"2025-07-02T18:34:23.894Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:23.897Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method click"}
-{"level":30,"time":"2025-07-02T18:34:23.897Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=[class=\"btn-logout\"] in page."}
-{"level":30,"time":"2025-07-02T18:34:23.925Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method click"}
-{"level":30,"time":"2025-07-02T18:34:23.928Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:23.928Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.930Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:23.932Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.932Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:23.939Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:23.939Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:23.942Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:23.942Z","pid":1560,"hostname":"SKY-P4R4DOXO","Take screenshot with options: ":{"path":"C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados Front-end\\logs\\browser\\screenshot\\robotframework-browser-screenshot-4.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
-{"level":30,"time":"2025-07-02T18:34:24.046Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:24.053Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.056Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.058Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.060Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.062Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.063Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.065Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.066Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.068Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active context"}
-{"level":30,"time":"2025-07-02T18:34:24.068Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changing current active page: page=38094e4a-d132-4ec6-80b9-bc9bc0fd03c1"}
-{"level":30,"time":"2025-07-02T18:34:24.068Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:24.069Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method closeContext"}
-{"level":30,"time":"2025-07-02T18:34:24.084Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Removed page=6a39d075-0264-4dfe-a63e-875ce7f4d2a1 from context=bff6fa24-e1a3-4213-919e-2d00995a07e7 page stack"}
-{"level":30,"time":"2025-07-02T18:34:24.085Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Removed page=e5527aa9-a3af-4c08-811c-8e5346de09ee from context=bff6fa24-e1a3-4213-919e-2d00995a07e7 page stack"}
-{"level":30,"time":"2025-07-02T18:34:24.098Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method closeContext"}
-{"level":30,"time":"2025-07-02T18:34:24.101Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.102Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.105Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method switchBrowser"}
-{"level":30,"time":"2025-07-02T18:34:24.105Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method switchBrowser"}
-{"level":30,"time":"2025-07-02T18:34:24.107Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:24.107Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2025-07-02T18:34:24.112Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active context"}
-{"level":30,"time":"2025-07-02T18:34:24.189Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
-{"level":30,"time":"2025-07-02T18:34:24.189Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:24.399Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:24.404Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:24.404Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2025-07-02T18:34:24.429Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
-{"level":30,"time":"2025-07-02T18:34:24.429Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:24.532Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
-{"level":30,"time":"2025-07-02T18:34:24.535Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:24.535Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:24.603Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-07-02T18:34:24.606Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:24.606Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
-{"level":30,"time":"2025-07-02T18:34:24.619Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
-{"level":30,"time":"2025-07-02T18:34:24.619Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
-{"level":30,"time":"2025-07-02T18:34:24.622Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:24.622Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=email in page."}
-{"level":30,"time":"2025-07-02T18:34:24.631Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:24.633Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:24.633Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=password in page."}
-{"level":30,"time":"2025-07-02T18:34:24.641Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
-{"level":30,"time":"2025-07-02T18:34:24.644Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method click"}
-{"level":30,"time":"2025-07-02T18:34:24.644Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=[class=\"btn btn-primary login-btn\"] in page."}
-{"level":30,"time":"2025-07-02T18:34:24.667Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method click"}
-{"level":30,"time":"2025-07-02T18:34:24.670Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getDomProperty"}
-{"level":30,"time":"2025-07-02T18:34:24.671Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=email in page."}
-{"level":30,"time":"2025-07-02T18:34:24.676Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Retrieved dom property for element id=email containing Inclua um \"@\" no endereço de e-mail. \"invalidEmail.com\" está com um \"@\" faltando."}
-{"level":30,"time":"2025-07-02T18:34:24.676Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getDomProperty"}
-{"level":30,"time":"2025-07-02T18:34:24.681Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:24.681Z","pid":1560,"hostname":"SKY-P4R4DOXO","Take screenshot with options: ":{"path":"C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados Front-end\\logs\\browser\\screenshot\\robotframework-browser-screenshot-5.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
-{"level":30,"time":"2025-07-02T18:34:24.863Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method takeScreenshot"}
-{"level":30,"time":"2025-07-02T18:34:24.869Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.872Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.873Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.874Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.875Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.876Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.878Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.879Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.880Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active context"}
-{"level":30,"time":"2025-07-02T18:34:24.880Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changing current active page: page=3cbe2005-55e1-454d-87b6-70aa40dd0d8f"}
-{"level":30,"time":"2025-07-02T18:34:24.880Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
-{"level":30,"time":"2025-07-02T18:34:24.881Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method closeContext"}
-{"level":30,"time":"2025-07-02T18:34:24.891Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Removed page=ca49dbd8-c907-4343-b83d-b5b331519e3d from context=12ab418b-0d55-4ee1-b637-f44d6e2b5e95 page stack"}
-{"level":30,"time":"2025-07-02T18:34:24.892Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Removed page=35f6ccc2-b9ce-4ec3-a4ce-621f36f2a432 from context=12ab418b-0d55-4ee1-b637-f44d6e2b5e95 page stack"}
-{"level":30,"time":"2025-07-02T18:34:24.904Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method closeContext"}
-{"level":30,"time":"2025-07-02T18:34:24.909Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.909Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-07-02T18:34:24.950Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"Start of node method closeAllBrowsers"}
-{"level":30,"time":"2025-07-02T18:34:25.072Z","pid":1560,"hostname":"SKY-P4R4DOXO","msg":"End of node method closeAllBrowsers"}
+{"level":30,"time":"2025-07-02T22:24:34.031Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-07-02T22:24:34.176Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Adding browser to stack: chromium, version: 136.0.7103.25"}
+{"level":30,"time":"2025-07-02T22:24:34.177Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-07-02T22:24:34.176Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-07-02T22:24:34.182Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-07-02T22:24:34.183Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-07-02T22:24:34.193Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Changed active context"}
+{"level":30,"time":"2025-07-02T22:24:34.310Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
+{"level":30,"time":"2025-07-02T22:24:34.310Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
+{"level":30,"time":"2025-07-02T22:24:34.510Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
+{"level":30,"time":"2025-07-02T22:24:34.703Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-07-02T22:24:34.703Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-07-02T22:24:34.727Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
+{"level":30,"time":"2025-07-02T22:24:34.727Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
+{"level":30,"time":"2025-07-02T22:24:34.814Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
+{"level":30,"time":"2025-07-02T22:24:34.817Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:34.818Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:34.873Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:34.875Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:34.876Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:34.891Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Cadastro"}
+{"level":30,"time":"2025-07-02T22:24:34.891Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:34.894Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:34.894Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T22:24:34.905Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:34.908Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:34.908Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T22:24:34.915Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:34.919Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:34.919Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T22:24:34.925Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:34.929Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:34.929Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=confirmPassword in page."}
+{"level":30,"time":"2025-07-02T22:24:34.935Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:34.940Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T22:24:34.940Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=[class=\"btn btn-primary\"] in page."}
+{"level":30,"time":"2025-07-02T22:24:34.968Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T22:24:34.971Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:34.971Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:34.974Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:34.976Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:34.976Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:34.983Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Cadastro"}
+{"level":30,"time":"2025-07-02T22:24:34.983Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:34.995Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:34.995Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.003Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Cadastro"}
+{"level":30,"time":"2025-07-02T22:24:35.003Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.016Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.016Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.022Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Cadastro"}
+{"level":30,"time":"2025-07-02T22:24:35.022Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.034Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.034Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.042Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Cadastro"}
+{"level":30,"time":"2025-07-02T22:24:35.042Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.054Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.054Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.062Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Cadastro"}
+{"level":30,"time":"2025-07-02T22:24:35.062Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.074Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.075Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.122Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Cadastro"}
+{"level":30,"time":"2025-07-02T22:24:35.122Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.135Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.135Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.201Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Welcome to Cinema App"}
+{"level":30,"time":"2025-07-02T22:24:35.201Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.205Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2025-07-02T22:24:35.205Z","pid":23428,"hostname":"SKY-P4R4DOXO","Take screenshot with options: ":{"path":"C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados Front-end\\logs\\browser\\screenshot\\robotframework-browser-screenshot-1.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
+{"level":30,"time":"2025-07-02T22:24:35.301Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2025-07-02T22:24:35.307Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-07-02T22:24:35.307Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-07-02T22:24:35.332Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Video path: undefined"}
+{"level":30,"time":"2025-07-02T22:24:35.332Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
+{"level":30,"time":"2025-07-02T22:24:35.423Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method newPage"}
+{"level":30,"time":"2025-07-02T22:24:35.426Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.427Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.484Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.487Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.487Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.499Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
+{"level":30,"time":"2025-07-02T22:24:35.499Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.502Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:35.502Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T22:24:35.511Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:35.513Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:35.513Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T22:24:35.520Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T22:24:35.523Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T22:24:35.523Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=[class=\"btn btn-primary login-btn\"] in page."}
+{"level":30,"time":"2025-07-02T22:24:35.559Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T22:24:35.562Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.562Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.566Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.569Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.569Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.575Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
+{"level":30,"time":"2025-07-02T22:24:35.575Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.587Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.587Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.593Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
+{"level":30,"time":"2025-07-02T22:24:35.593Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.606Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.606Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.613Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
+{"level":30,"time":"2025-07-02T22:24:35.613Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.625Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.625Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.632Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Login"}
+{"level":30,"time":"2025-07-02T22:24:35.632Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.644Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.644Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.674Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Welcome to Cinema App"}
+{"level":30,"time":"2025-07-02T22:24:35.674Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.678Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2025-07-02T22:24:35.678Z","pid":23428,"hostname":"SKY-P4R4DOXO","Take screenshot with options: ":{"path":"C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados Front-end\\logs\\browser\\screenshot\\robotframework-browser-screenshot-2.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
+{"level":30,"time":"2025-07-02T22:24:35.776Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2025-07-02T22:24:35.779Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T22:24:35.779Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=nav a:has-text(\"Perfil\") in page."}
+{"level":30,"time":"2025-07-02T22:24:35.821Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T22:24:35.824Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.824Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.826Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.828Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.828Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with css=main h1 in page."}
+{"level":30,"time":"2025-07-02T22:24:35.836Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element css=main h1 containing Meu Perfil"}
+{"level":30,"time":"2025-07-02T22:24:35.836Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.841Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.841Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with xpath=//h2[text()=\"Informações Pessoais\"] in page."}
+{"level":30,"time":"2025-07-02T22:24:35.843Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.845Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.845Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with xpath=//h2[text()=\"Informações Pessoais\"] in page."}
+{"level":30,"time":"2025-07-02T22:24:35.851Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element xpath=//h2[text()=\"Informações Pessoais\"] containing Informações Pessoais"}
+{"level":30,"time":"2025-07-02T22:24:35.851Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.854Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.854Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T22:24:35.856Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T22:24:35.858Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.858Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T22:24:35.864Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Retrieved text for element id=name containing User Test"}
+{"level":30,"time":"2025-07-02T22:24:35.864Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getText"}
+{"level":30,"time":"2025-07-02T22:24:35.867Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2025-07-02T22:24:35.867Z","pid":23428,"hostname":"SKY-P4R4DOXO","Take screenshot with options: ":{"path":"C:\\Users\\raiqu\\Desktop\\Nero\\Estágio\\Challenge Final\\Challenge Final\\Testes automatizados Front-end\\logs\\browser\\screenshot\\robotframework-browser-screenshot-3.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
+{"level":30,"time":"2025-07-02T22:24:35.963Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2025-07-02T22:24:35.968Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:35.971Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:35.973Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:35.974Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:35.975Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:35.977Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:35.978Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:35.980Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:35.982Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Changed active context"}
+{"level":30,"time":"2025-07-02T22:24:35.982Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Changing current active page: page=349078f6-d588-435c-910d-ae23aafaa092"}
+{"level":30,"time":"2025-07-02T22:24:35.982Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Changed active page"}
+{"level":30,"time":"2025-07-02T22:24:35.983Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method closeContext"}
+{"level":30,"time":"2025-07-02T22:24:35.994Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Removed page=2695b0cf-1148-48cc-b5e4-75de1469027b from context=ff77eab0-cd3b-4af8-91c7-4a7317dd39b8 page stack"}
+{"level":30,"time":"2025-07-02T22:24:35.995Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Removed page=0ce6aead-3997-47e7-87ac-84d9b485ae37 from context=ff77eab0-cd3b-4af8-91c7-4a7317dd39b8 page stack"}
+{"level":30,"time":"2025-07-02T22:24:35.995Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Removed page=c4d2102d-ea5f-43ad-a286-f3553115ebcb from context=ff77eab0-cd3b-4af8-91c7-4a7317dd39b8 page stack"}
+{"level":30,"time":"2025-07-02T22:24:36.009Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method closeContext"}
+{"level":30,"time":"2025-07-02T22:24:36.013Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:36.013Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T22:24:36.049Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2025-07-02T22:24:36.166Z","pid":23428,"hostname":"SKY-P4R4DOXO","msg":"End of node method closeAllBrowsers"}
