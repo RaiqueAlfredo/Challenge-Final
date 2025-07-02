@@ -14,6 +14,17 @@ ${login_page_password}    id=password
 ${login_page_entrar}    css=[class="btn btn-primary login-btn"]
 
 # Variáveis para MoviePage
+${movie_page_h1}    css=main h1
+${movie_page_lists}    css=[class="movies-grid"]
+${movie_page_cards}    css=[class="movie-card"]
+${movie_page_info}    css=[class="movie-info"]
+${movie_page_btn_detail}    xpath=//h3[text()="Interstellar"]/../a
+${movie_page_detail_poster}    css=[class="movie-poster"]
+${movie_page_detail_info}    css=[class="movie-info"]
+${movie_page_detail_meta}    css=[class="movie-meta"]
+${movie_page_detail_genres}    css=[class="movie-genres"]
+${movie_page_detail_director}    css=[class="movie-director"]
+${movie_page_detail_synopse}    css=[class="movie-synopsis"]
 
 # Variáveis para RegistrationPage
 ${register_page_h1}    css=main h1
