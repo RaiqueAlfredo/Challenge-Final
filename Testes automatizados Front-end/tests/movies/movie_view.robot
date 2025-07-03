@@ -8,7 +8,7 @@ Test Teardown    Finalize Session
 
 *** Test Cases ***
 MOVIE-FE-001: Listar todos os filmes disponíveis
-    [Tags]    lista_de_filmes
+    [Tags]    lista_de_filmes    filmes
     Fazer Login user comum
     Ir para página de filmes em cartaz
     Verificar lista de filmes

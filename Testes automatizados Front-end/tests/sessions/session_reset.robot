@@ -7,7 +7,7 @@ Test Teardown    Finalize Session
 
 *** Test Cases ***
 SESSIONS-FE-008: Resetar os assentos de uma sessão existente para disponíveis pela interface
-    [Tags]    resetar_assentos
+    [Tags]    resetar_assentos    sessao
     Criar uma reserva
     Fazer Login user admin
     Ir para seleção de assentos

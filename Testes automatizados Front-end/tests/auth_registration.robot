@@ -8,7 +8,7 @@ Test Teardown    Finalize Session
 
 *** Test Cases ***
 AUTH-FE-001: Registro de usuário pelo formulário na interface
-    [Tags]    registro_user_valido
+    [Tags]    registro_user_valido    cadastro
     ${data}    Get Fixture    auth    user
     Remove user from database    ${data}[user_valido][name]
     Abrir página de cadastro
@@ -16,7 +16,7 @@ AUTH-FE-001: Registro de usuário pelo formulário na interface
     Enviar cadastro
     Verificar cadastro com sucesso
 AUTH-FE-006: Registro de usuário com e-mail já existente pela interface
-    [Tags]    registro_user_email_dup
+    [Tags]    registro_user_email_dup    cadastro
     ${data}    Get Fixture    auth    user
     Abrir página de cadastro
     Preencher formulário para cadastro    ${data}[user_email_dup]

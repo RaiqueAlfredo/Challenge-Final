@@ -8,14 +8,14 @@ Test Teardown    Finalize Session
 
 *** Test Cases ***
 RESERVATIONS-FE-004: Criar reserva na interface
-    [Tags]    criar_reserva
+    [Tags]    criar_reserva    reserva
     Criar uma reserva
     Fazer Login com user criado para teste
     Ir para página de minhas reservas
     Confirmar se a reserva está correta
 
 RESERVATIONS-FE-009: Tentar criar uma nova reserva com dados inválidos pela interface
-    [Tags]    criar_reserva_invalida
+    [Tags]    criar_reserva_invalida    reserva
     Reset user from database para teste
     Fazer Login com user criado para teste
     Ir para seleção de assentos
