@@ -1,0 +1,35 @@
+# Arquivos e pastas gerados durante execução dos testes
+# Logs do Robot Framework
+/logs
+logs/
+*.log
+*.html
+*.xml
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Arquivos do Browser Library (Playwright)
+/browser
+browser/
+.playwright/
+playwright-log.txt
+
+# Arquivos temporários
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+.venv/
+venv/
+
+# Screenshots de falhas
+screenshots/
+*.png

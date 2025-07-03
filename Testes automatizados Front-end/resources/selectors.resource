@@ -36,8 +36,23 @@ ${register_page_button}    css=[class="btn btn-primary"]
 ${register_page_alert}    css=[class="alert-content"]
 
 # Variáveis para ReservationPage
+${reservation_page_h1}    css=main h1
 
 # Variáveis para SessionPage
+${session_page_h2}    xpath=//h2[text()="Sessões Disponíveis"]
+${session_page_list}    css=[class="sessions-list"]
+${session_page_date_group}    css=[class="session-date-group"]
+${session_page_time}    css=[class="session-time"]
+${session_page_theater}    css=[class="session-theater"]
+${session_page_price}    css=[class="session-price"]
+${session_page_btn_select_seat}    xpath=(//a[text()="Selecionar Assentos"])[1]
+${session_page_btn_reset_seat}    css=[class="btn btn-primary btn-sm reset-seats-btn"]
+${session_page_select_seat}    css=button[title*="Fileira F, Assento 4"]
+${session_page_btn_payment}    css=[class="btn btn-primary checkout-button"]
+${session_page_resume}    xpath=//h2[text()="Resumo do Pedido"] 
+${session_page_btn_buy}    css=[class="btn btn-primary btn-checkout"]
+${session_page_buy_confirmed}    css=main h1
+${session_page_reservation_codig}    xpath=//span[text()="Código da Reserva:"]/following-sibling::span
 
 # Variáveis para UserPage
 ${user_page_h1}    css=main h1

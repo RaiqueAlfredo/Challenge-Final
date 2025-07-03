@@ -45,7 +45,7 @@ Fazer Login user comum
     Verificar login com sucesso
 Fazer Login user admin
     ${data}    Get Fixture    auth    login
-    Log    Tentando login com: ${data}[login_admim_valido]
+    Log    Tentando login com: ${data}[login_admin_valido]
     Abrir página de login
     Preencher formulário para login    ${data}[login_admin_valido]
     Enviar login
@@ -76,3 +76,31 @@ Reset user from database para teste
     ${name_update}    Create Dictionary    name=Usuario Test Put
     Remove user from database    ${name_update}[name]
     Reset user from database
+
+# Helper abaixo para ir direto aos detalhes do filme
+Ir para detalhes de filme
+    Ir para página de filmes em cartaz
+    Clicar em ver detalhes de um filme especifício
+    Verificar detalhes completos do filme
+
+# Helpers abaixo para ajudar a fazer uma reserva mais rápido
+Ir para seleção de assentos
+    Ir para detalhes de filme
+    Clicar em selecionar assentos para ir a seleção
+Criar uma reserva
+    Resetar assentos antes do teste
+    Fazer Login user comum
+    Ir para seleção de assentos
+    Selecionar assentos
+    Ir para pagamento e finalizar compra
+    Verificar se a compra foi um sucesso
+    Fazer logout
+    Resetar assentos antes do teste
+
+# Helpers abaixo para resetar assentos da sessão
+Resetar assentos antes do teste
+    Fazer Login user admin
+    Ir para seleção de assentos
+    Resetar assentos para disponíveis
+    Confirmar se assentos foram resetados
+    Fazer logout
