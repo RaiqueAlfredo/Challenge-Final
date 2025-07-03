@@ -6,6 +6,7 @@ Library    FakerLibrary
 
 Resource    ../env.resource
 Resource    ../selectors.resource
+Resource    ../base.resource
 
 *** Keywords ***
 Verificar sessões disponíveis
@@ -57,5 +58,8 @@ Ir para pagamento e finalizar compra
 Verificar se a compra foi um sucesso
     Wait For Elements State    ${session_page_buy_confirmed}    visible    5
     Get Text    ${session_page_buy_confirmed}    equal    Reserva Confirmada!
+    ${codig_complete}=    Get Text    ${session_page_reservation_codig}
+    ${codig_8_digits}=    Get Substring    ${codig_complete}    0    8
+    Set Test Variable    ${codig_8_digits}
     Sleep    1s
     Take Screenshot

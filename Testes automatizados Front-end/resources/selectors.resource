@@ -36,7 +36,9 @@ ${register_page_button}    css=[class="btn btn-primary"]
 ${register_page_alert}    css=[class="alert-content"]
 
 # Variáveis para ReservationPage
+${reservation_page_go_btn}    xpath=//a[normalize-space(text())="Minhas Reservas"]
 ${reservation_page_h1}    css=main h1
+${reservation_page_id}    css=main h3 >> nth=0
 
 # Variáveis para SessionPage
 ${session_page_h2}    xpath=//h2[text()="Sessões Disponíveis"]

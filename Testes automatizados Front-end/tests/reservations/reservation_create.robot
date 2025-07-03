@@ -8,8 +8,8 @@ Test Teardown        Finalize Session
 *** Test Cases ***
 RESERVATIONS-FE-004: Criar reserva na interface
     [Tags]    criar_reserva
-    Fazer Login com user criado para teste
     Criar uma reserva
+    Fazer Login user comum
     Ir para página de minhas reservas
     Confirmar se a reserva está correta
 

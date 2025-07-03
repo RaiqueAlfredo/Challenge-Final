@@ -41,37 +41,3 @@ def insert_user(user):
     users = db['users']
     result = users.insert_one(doc)
     print(f'User inserted with ID: {result.inserted_id}')
-
-
-# @keyword('Remove movie from database')
-# def remove_movie(movie_title):
-#     movies = db['movies']
-    
-#     result = movies.delete_many({'title': movie_title})
-    
-#     if result.deleted_count > 0:
-#         print(f'Removed {result.deleted_count} movie(s) with title: {movie_title}')
-#         return True
-#     else:
-#         print(f'No movie found with title: {movie_title}')
-#         return False
-    
-# @keyword('Insert movie from database')
-# def insert_movie(movie):
-#     current_time = datetime.now(timezone.utc)
-
-#     doc = {
-#         'title': movie.get('title', 'Filme Para Teste'),
-#         'synopsis': movie.get('synopsis', 'Sinopse do Filme'),
-#         'director': movie.get('director', 'Testador de Filme'),
-#         'genres': movie.get('genres', ['Science Fiction']),
-#         'duration': movie.get('duration', 120),
-#         'classification': movie.get('classification', 'R'),
-#         'poster': movie.get('poster', 'default-poster.jpg'),
-#         'releaseDate': movie.get('releaseDate', '2025-07-02'),
-#         'createdAt': current_time,
-#         'updatedAt': current_time
-#     }
-    
-#     result = db['movies'].insert_one(doc)
-#     print(f'Movie inserted with ID: {result.inserted_id}')
