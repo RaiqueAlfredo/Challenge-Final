@@ -39,6 +39,7 @@ Clicar em selecionar assentos para ir a seleção
 Selecionar assentos
     Wait For Elements State    ${session_page_select_seat}    enabled    10s
     Click    ${session_page_select_seat}
+    Take Screenshot
 Resetar assentos para disponíveis
     Wait For Elements State    ${session_page_btn_reset_seat}    enabled    10s
     Take Screenshot
