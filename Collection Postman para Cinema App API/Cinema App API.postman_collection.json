@@ -553,63 +553,6 @@
 						}
 					],
 					"description": "Este teste verifica a atualização de um usuário com credenciais inválidas.\n\n**Pré-condição:** O usuário deve estar autenticado.  \n**Passos:**\n\n- Fazer uma requisição PUT na rota /api/v1/auth/profile.\n    \n- Enviar no payload campos inválidos (exemplo: name vazio ou senha com formato inválido).\n    \n\n**Resultado Esperado:**\n\n- Retorna status 401 (Unauthorized).\n    \n- A resposta contém mensagens de erro específicas para os campos inválidos."
-				},
-				{
-					"name": "ID: SETUP-BE-001 (Criar um administrador no ambiente de desenvolvimento)",
-					"item": [
-						{
-							"name": "Criar um administrador no ambiente de desenvolvimento",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"User Admin\",\r\n  \"email\": \"email@admin.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
-									"host": [
-										"{{URL-DEVELOPMENT}}"
-									],
-									"path": [
-										"setup",
-										"admin"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"description": "Este teste verifica a criação de um administrador no ambiente de desenvolvimento.\n\n**Pré-condição:** O ambiente deve estar configurado como \"development\".  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/setup/admin.\n    \n- Enviar no payload os seguintes campos: name; email; password.\n    \n\n**Resultado Esperado:**\n\n- Status: 201 (Created)\n    \n- Mensagem de sucesso contendo os dados criados, exceto senha e sua role."
-				},
-				{
-					"name": "ID: SETUP-BE-002 (Criar usuários de teste no ambiente de desenvolvimento)",
-					"item": [
-						{
-							"name": "Criar usuários de teste no ambiente de desenvolvimento",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "{{URL-DEVELOPMENT}}/setup/test-users",
-									"host": [
-										"{{URL-DEVELOPMENT}}"
-									],
-									"path": [
-										"setup",
-										"test-users"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"description": "Este teste verifica a criação de usuários de teste no ambiente de desenvolvimento.\n\n**Pré-condição:** O ambiente deve estar configurado como \"development\".  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/setup/test-user.\n    \n\n**Resultado Esperado:**\n\n- Status: 200 (OK)\n    \n- Mensagem de sucesso adequada."
 				}
 			],
 			"description": "Esta pasta contém os testes relacionados ao módulo de autenticação, incluindo endpoints para registro, login, logout e gerenciamento de perfis de usuários autenticados. É responsável por validar o controle de acesso à aplicação e garantir que somente usuários autorizados possam realizar determinadas ações."
@@ -3495,7 +3438,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"movie\": \"\",\r\n  \"theater\": \"006\",\r\n  \"datetime\": \"2025-06-29T04:12:59.412Z\",\r\n  \"fullPrice\": 0,\r\n  \"halfPrice\": 0\r\n}",
+									"raw": "{\r\n  \"datetime\": \"2025-06-29T04:12:59.412Z\",\r\n  \"fullPrice\": 0,\r\n  \"halfPrice\": 0\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4379,7 +4322,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"session\": \"{{id-session-reservations-004}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 4,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
+									"raw": "{\r\n  \"session\": \"{{id-session-reservations-004}}\",\r\n  \"seats\": [\r\n    {\r\n      \"row\": \"A\",\r\n      \"number\": 7,\r\n      \"type\": \"full\"\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"credit_card\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5275,6 +5218,69 @@
 				}
 			],
 			"description": "Esta pasta contém os testes relacionados ao módulo de reservas. Abrange funcionalidades para listar reservas, obter detalhes, criar novas reservas, atualizar status e excluir reservas. Também inclui testes para cenários de erro, como tentativas de acesso sem autenticação ou com dados inválidos."
+		},
+		{
+			"name": "Setup",
+			"item": [
+				{
+					"name": "ID: SETUP-BE-001 (Criar um administrador no ambiente de desenvolvimento)",
+					"item": [
+						{
+							"name": "Criar um administrador no ambiente de desenvolvimento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"User Admin\",\r\n  \"email\": \"email@admin.com\",\r\n  \"password\": \"qatestadmin321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/admin",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de um administrador no ambiente de desenvolvimento.\n\n**Pré-condição:** O ambiente deve estar configurado como \"development\".  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/setup/admin.\n    \n- Enviar no payload os seguintes campos: name; email; password.\n    \n\n**Resultado Esperado:**\n\n- Status: 201 (Created)\n    \n- Mensagem de sucesso contendo os dados criados, exceto senha e sua role."
+				},
+				{
+					"name": "ID: SETUP-BE-002 (Criar usuários de teste no ambiente de desenvolvimento)",
+					"item": [
+						{
+							"name": "Criar usuários de teste no ambiente de desenvolvimento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{URL-DEVELOPMENT}}/setup/test-users",
+									"host": [
+										"{{URL-DEVELOPMENT}}"
+									],
+									"path": [
+										"setup",
+										"test-users"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Este teste verifica a criação de usuários de teste no ambiente de desenvolvimento.\n\n**Pré-condição:** O ambiente deve estar configurado como \"development\".  \n**Passos:**\n\n- Fazer uma requisição POST na rota /api/v1/setup/test-user.\n    \n\n**Resultado Esperado:**\n\n- Status: 200 (OK)\n    \n- Mensagem de sucesso adequada."
+				}
+			],
+			"description": "Esta pasta contém os testes relacionados ao módulo de configuração (setup) do ambiente de desenvolvimento. Inclui funcionalidades específicas para criar um usuário administrador e usuários de teste padrão. Esses endpoints são utilizados apenas em ambiente de desenvolvimento e não exigem autenticação."
 		}
 	],
 	"auth": {
