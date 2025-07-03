@@ -1,10 +1,10 @@
 *** Settings ***
 Documentation    Cenários de login dentro do módulo de authentication
 
-Resource             ../resources/base.resource
+Resource    ../resources/base.resource
 
-Test Setup           Start Session
-Test Teardown        Finalize Session
+Test Setup    Start Session
+Test Teardown    Finalize Session
 
 *** Test Cases ***
 AUTH-FE-002: Login pela interface

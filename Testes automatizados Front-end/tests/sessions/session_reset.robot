@@ -1,9 +1,9 @@
 *** Settings ***
-Documentation        Cenários de reset de assentos dentro do módulo de sessões
-Resource             ../../resources/base.resource
+Documentation    Cenários de reset de assentos dentro do módulo de sessões
+Resource    ../../resources/base.resource
 
-Test Setup           Start Session  
-Test Teardown        Finalize Session
+Test Setup    Start Session  
+Test Teardown    Finalize Session
 
 *** Test Cases ***
 SESSIONS-FE-008: Resetar os assentos de uma sessão existente para disponíveis pela interface

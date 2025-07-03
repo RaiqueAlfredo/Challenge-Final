@@ -1,9 +1,10 @@
 *** Settings ***
-Documentation        Cenários de visualizar detalhes de filmes dentro do módulo de movies
-Resource             ../../resources/base.resource
+Documentation    Cenários de visualizar detalhes de filmes dentro do módulo de movies
 
-Test Setup           Start Session  
-Test Teardown        Finalize Session
+Resource    ../../resources/base.resource
+
+Test Setup    Start Session  
+Test Teardown    Finalize Session
 
 *** Test Cases ***
 MOVIE-FE-001: Listar todos os filmes disponíveis

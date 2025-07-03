@@ -55,6 +55,14 @@ Ir para pagamento e finalizar compra
     Sleep    1s
     Take Screenshot
     Click    ${session_page_btn_buy}
+Ir para pagamento sem selecionar assentos
+    Wait For Elements State    ${session_page_btn_payment}    disabled    5s
+    TRY
+        Click    ${session_page_btn_payment}    timeout=2s
+        Fail    Botão deveria estar desabilitado mas permitiu clique
+    EXCEPT
+        Log    Botão corretamente desabilitado - não permitiu clique
+    END
 Verificar se a compra foi um sucesso
     Wait For Elements State    ${session_page_buy_confirmed}    visible    5
     Get Text    ${session_page_buy_confirmed}    equal    Reserva Confirmada!

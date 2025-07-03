@@ -1,10 +1,10 @@
 *** Settings ***
-Documentation        Cenários de registro dentro do módulo de authentication
-Resource             ../resources/base.resource
+Documentation    Cenários de registro dentro do módulo de authentication
+Resource    ../resources/base.resource
 
 
-Test Setup           Start Session  
-Test Teardown        Finalize Session
+Test Setup    Start Session  
+Test Teardown    Finalize Session
 
 *** Test Cases ***
 AUTH-FE-001: Registro de usuário pelo formulário na interface
