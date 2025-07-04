@@ -26,6 +26,9 @@ jsonschema==4.20.0
 # Bibliotecas para relatórios e logs
 robotframework-pabot==2.16.0
 
+# Relatórios avançados
+allure-robotframework==2.13.2
+
 # INSTALAÇÃO:
 # pip install -r requirements.txt
 #

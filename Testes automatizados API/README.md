@@ -168,10 +168,58 @@ robot -e bug_conhecido tests/
 
 ## 📊 Relatórios
 
+### Relatórios Padrão do Robot Framework
 Após a execução, os relatórios são gerados na pasta `logs/`:
 - **report.html** - Relatório detalhado dos testes
 - **log.html** - Log completo da execução
 - **output.xml** - Dados em XML para integração
+
+### 🎆 Allure Reports (Inovação)
+
+**Relatórios avançados e interativos com gráficos, timeline e métricas detalhadas.**
+
+#### Executar testes com Allure:
+```bash
+# Executar testes gerando dados para Allure
+robot --listener allure_robotframework --outputdir logs tests/
+
+# Gerar e abrir relatório Allure
+allure serve allure-results
+```
+
+#### Instalar Allure CLI (OBRIGATÓRIO para relatórios):
+
+**Windows:**
+```powershell
+# 1. Baixar de: https://github.com/allure-framework/allure2/releases/latest
+# 2. Extrair o arquivo ZIP para C:\allure
+# 3. Adicionar ao PATH:
+[Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\allure\allure-2.34.1\bin", "User")
+# 4. Reiniciar terminal e testar:
+allure --version
+```
+
+**macOS:**
+```bash
+brew install allure
+```
+
+**Linux:**
+```bash
+wget https://github.com/allure-framework/allure2/releases/download/2.34.1/allure-2.34.1.tgz
+tar -zxvf allure-2.34.1.tgz
+sudo mv allure-2.34.1 /opt/allure
+echo 'export PATH="/opt/allure/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+#### Recursos do Allure:
+- 📈 **Gráficos interativos** de resultados
+- 🕰️ **Timeline** de execução dos testes
+- 📊 **Métricas detalhadas** de performance
+- 📁 **Categorização** automática de falhas
+- 📷 **Screenshots** e anexos automáticos
+- 🎯 **Trends** históricos de execução
 
 ## 🔐 Configuração da API e Credenciais de Teste
 

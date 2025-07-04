@@ -10,6 +10,7 @@ Library    libs/database.py
 
 Resource    ../resources/env.resource
 Resource    ../resources/selectors.resource
+Resource    ../resources/allure_keywords.resource
 
 Resource    ../resources/pages/HomePage.resource
 Resource    ../resources/pages/LoginPage.resource
@@ -18,6 +19,7 @@ Resource    ../resources/pages/RegistrationPage.resource
 Resource    ../resources/pages/ReservationPage.resource
 Resource    ../resources/pages/SessionPage.resource
 Resource    ../resources/pages/UserPage.resource
+
 
 *** Keywords ***
 Start Session

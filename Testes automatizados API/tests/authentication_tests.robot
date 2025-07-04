@@ -1,18 +1,30 @@
 *** Settings ***
 Documentation    Cenários de testes candidatos à automação para o módulo de "Authentication"
 
-Resource        ../keywords/authentication_keywords.resource
+Resource    ../keywords/authentication_keywords.resource
+Resource    ../support/allure_keywords.resource
 
 Test Setup    Iniciar sessão
 Test Teardown    Finalizar sessão
 
 *** Test Cases ***
 AUTH-BE-002: Login de usuário
-    [Documentation]    Teste realizado com os dados de login recomendado para testar a API em "Sample Users" no README do repositório "cinema-challenge-back"
+    [Documentation]    Teste de login com usuário válido
     [Tags]    login_válido
+    Feature Authentication
+    Allure Test Info    Teste de login com credenciais válidas    High
+
+    Allure Step    Preparar dados de login
     Payload login usuário comum
+    
+    Allure Step    Executar login
     POST endpoint /auth/Login
+
+    Allure Step    Validar resposta
+    Allure Attach Response    ${resp.json()}
     Validar se o login foi realizado com sucesso
+    
+    Allure Success    Login realizado com sucesso
     Validar Status Code "200"
 AUTH-BE-006: Registro com e-mail já existente
     [Documentation]    Para realizar este teste tentei registrar um usuário usando o email recomendado para testar a API em "Sample Users" no README do repositório "cinema-challenge-back"
