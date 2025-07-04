@@ -16,11 +16,11 @@ O **Cinema App Challenge Final** é um projeto completo de plano de teste e auto
 **Cargo:** Estagiário na Compass UOL - PB AWS & AI for QE   
 **Idade:** 21 anos   
 **Curso:** Bacharelado em Engenharia de Software    
-**Semestre:**   
+**Semestre:** 7º Semestre  
 **Cidade:** Imbituva - PR  
-**Cor dos olhos:** Verde 
-**Cor dos cabelos:** Preto
-**Cor de pele:** Branco
+**Cor dos olhos:** Verde escuro    
+**Cor dos cabelos:** Preto    
+**Cor de pele:** Branco    
 **Tipo de roupa que estou usando**: Calça de moletom branca e jaqueta branca
 
 
