@@ -67,6 +67,8 @@ Fazer logout do user
 # Helpers abaixo para resetar usuário no banco de dados
 Reset user from database
     ${user}    Get Fixture    auth    user
+    ${removed_count}    Remove reservations by user name    ${user}[user_valido][name]
+    Log    Removed ${removed_count} reservations
     Remove user from database    ${user}[user_valido][name]
     Abrir página de cadastro
     Preencher formulário para cadastro    ${user}[user_valido]
@@ -89,7 +91,8 @@ Ir para seleção de assentos
     Clicar em selecionar assentos para ir a seleção
 Criar uma reserva
     Resetar assentos antes do teste
-    Fazer Login user comum
+    Reset user from database para teste
+    Fazer Login com user criado para teste
     Ir para seleção de assentos
     Selecionar assentos
     Ir para pagamento e finalizar compra

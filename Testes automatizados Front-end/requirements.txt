@@ -1,0 +1,35 @@
+# Cinema App - Testes Automatizados Frontend
+# Dependências Python necessárias para execução dos testes
+
+# Robot Framework - Framework principal para automação de testes
+robotframework==6.1.1
+
+# Browser Library - Biblioteca para automação web com Playwright
+robotframework-browser==18.6.3
+
+# Requests Library - Para testes de API e requisições HTTP
+robotframework-requests==0.9.7
+
+# Faker Library - Geração de dados fake para testes
+robotframework-faker==5.0.0
+
+# Bibliotecas para manipulação de banco de dados MongoDB
+pymongo==4.6.0
+bcrypt==4.1.2
+
+# Bibliotecas para manipulação de arquivos e ambiente
+python-dotenv==1.0.0
+
+# Bibliotecas auxiliares para manipulação de dados
+jsonschema==4.20.0
+
+# Bibliotecas para relatórios e logs
+robotframework-pabot==2.16.0
+
+# INSTALAÇÃO:
+# pip install -r requirements.txt
+#
+# APÓS INSTALAÇÃO, EXECUTE:
+# rfbrowser init
+#
+# NOTA: Certifique-se de ter Python 3.8+ e Node.js 16+ instalados

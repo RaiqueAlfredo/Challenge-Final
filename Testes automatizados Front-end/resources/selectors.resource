@@ -6,6 +6,19 @@ Documentation        Variáveis globais para selecionar algo especifício na pá
 ${home_title}    css=main h1
 ${logout_button}    css=[class="btn-logout"]
 ${profile}    css=nav a:has-text("Perfil")
+${description_app}    xpath=//p[contains(text(), "Your premier destination")]
+${features_app}    css=[class="features-section"]
+${header_app}    css=[class="header"]
+${movies_poster}    css=[class="movie-grid"]
+${movies_poster_card}    css=.movie-card
+${movies_poster_img}    css=.movie-card img
+${link_footer_movies}    xpath=//footer//a[text()="Filmes em Cartaz"]
+${link_footer_login}    xpath=//footer//a[text()="Login"]
+${link_footer_register}    xpath=//footer//a[text()="Cadastre-se"]
+${link_header_movies}    xpath=//nav//a[text()="Filmes em Cartaz"]
+${link_header_home}    xpath=//nav//a[text()="Início"]
+${reservation_page_go_btn}    xpath=//a[normalize-space(text())="Minhas Reservas"]
+${header_toggle_mobile}    css=[class="mobile-toggle"]
 
 # Variáveis para LoginPage
 ${login_page_h1}    css=main h1
@@ -36,7 +49,6 @@ ${register_page_button}    css=[class="btn btn-primary"]
 ${register_page_alert}    css=[class="alert-content"]
 
 # Variáveis para ReservationPage
-${reservation_page_go_btn}    xpath=//a[normalize-space(text())="Minhas Reservas"]
 ${reservation_page_h1}    css=main h1
 ${reservation_page_id}    css=main h3 >> nth=0
 

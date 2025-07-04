@@ -9,7 +9,7 @@
         "paymentMethod": "credit_card"
     },
     "reserva_invalido": {
-        "session": "id-inexistente",
+        "session": "_id-inexistente",
         "seats": [{
             "row": "",
             "number": "",

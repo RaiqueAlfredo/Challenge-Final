@@ -7,7 +7,7 @@ Test Teardown        Finalize Session
 
 *** Test Cases ***
 AUTH-FE-005: Editar e salvar alterações no perfil
-    [Tags]    editar_perfil
+    [Tags]    editar_perfil    usuario
     Reset user from database para teste
     ${user}    Create Dictionary    name=Usuario Test Put
     Fazer Login com user criado para teste
@@ -15,7 +15,7 @@ AUTH-FE-005: Editar e salvar alterações no perfil
     Atualizar nome de perfil e salvar alterações    ${user}
     Verificar se salvou as alterações
 AUTH-FE-008: Atualizar perfil com informações inválidas pela interface
-    [Tags]    editar_perfil_com_infos_invalidas
+    [Tags]    editar_perfil_com_infos_invalidas    usuario
     Fazer Login user comum
     Abrir página de perfil
     ${data}    Get Fixture    auth    user

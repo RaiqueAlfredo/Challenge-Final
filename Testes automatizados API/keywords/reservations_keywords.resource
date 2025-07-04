@@ -56,4 +56,4 @@ Validar se retornar mensagem de erro indicando os problemas no payload
     Log    success: ${resp.json()["success"]}
     Log    message: ${resp.json()["message"]}
     Log    stack: ${resp.json()["stack"]}
-    Fail    BUG: API não valida payload corretamente - retorna 'Resource not found' em vez de 'Validation failed'
+    Fail    BUG: API não valida payload corretamente - retorna 'Resource not found' em vez de 'Invalid input data or seats already taken' ou 'Session not found'

@@ -20,24 +20,30 @@ def remove_user(user_name):
     result = db['users'].delete_many({'name': user_name})
     print(f'Removed {result.deleted_count} user(s) with name: {user_name}')
     return result.deleted_count > 0
-    
-    
-@keyword('Insert user from database')
-def insert_user(user):
-    password_plain = user.get('password', 'qatest321')
-    password_hashed = bcrypt.hashpw(password_plain.encode('utf-8'), bcrypt.gensalt())
-    
-    current_time = datetime.now(timezone.utc)
 
-    doc = {
-        'name': user.get('name', 'User Test'),
-        "email": user.get('email', 'userTest@example.com'),
-        "password": password_hashed.decode('utf-8'),
-        "role": user.get('role', 'user'),
-        "createdAt": current_time,
-        "__v": 0,
-        "updatedAt": current_time
-    }
+
+@keyword('Remove reservations by user name')
+def remove_reservations_by_user_name(user_name):
     users = db['users']
-    result = users.insert_one(doc)
-    print(f'User inserted with ID: {result.inserted_id}')
+    reservations = db['reservations']
+    
+    try:
+        # Buscar usuário pelo nome
+        user = users.find_one({'name': user_name})
+        
+        if user:
+            user_id = user['_id']
+            print(f'Found user "{user_name}" with ID: {user_id}')
+            
+            # Remover reservas do usuário
+            result = reservations.delete_many({'user': user_id})
+            print(f'Removed {result.deleted_count} reservation(s) for user "{user_name}"')
+            
+            return result.deleted_count
+        else:
+            print(f'User "{user_name}" not found')
+            return 0
+            
+    except Exception as e:
+        print(f'Error: {e}')
+        return 0

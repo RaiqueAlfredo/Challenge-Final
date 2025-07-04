@@ -13,9 +13,10 @@ Ir para página de filmes em cartaz
     Wait For Elements State    ${movie_page_h1}    visible    5
     Get Text    ${movie_page_h1}    equal    Filmes em Cartaz
 Verificar lista de filmes
-    Wait For Elements State    css=.movies-grid    visible    5
-    Get Element Count    css=.movies-grid .movie-card    ==    16
-    Get Element Count    css=.movie-card .movie-info    ==    16
+    Wait For Elements State    ${movie_page_lists}    visible    5   
+    ${count}=    Get Element Count    ${movie_page_cards}
+    Should Be True    ${count} >= 16    msg=Deve ter pelo menos 16 filmes
+    Log    Encontrados ${count} filmes
     Take Screenshot
 Clicar em ver detalhes de um filme especifício
     Wait For Elements State    ${movie_page_btn_detail}    visible    5

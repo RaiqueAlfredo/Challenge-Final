@@ -189,13 +189,30 @@ cd "cinema-challenge-back"
 
 2. **Siga o passo a passo disponível no repositório da API: https://github.com/juniorschmitz/cinema-challenge-back**, para configurar dependências e banco de dados.
 
-3. **Sempre que for executar os testes, inicie a API:**
+
+3. **IMPORTANTE - Configuração do arquivo seedData.js:**
+   
+   Para garantir compatibilidade com os testes automatizados, substitua o conteúdo do arquivo `src/utils/seedData.js` pelo código disponível em: [Challenge Final](https://github.com/RaiqueAlfredo/Challenge-Final/Configuração para rodar localmente o Cinema App API)
+   
+   **Caminho do arquivo:** `cinema-challenge-back/src/utils/seedData.js`
+   
+   **Por que essa alteração é necessária:**
+   - Garante que os usuários de teste tenham as credenciais corretas
+   - Cria dados consistentes para os testes automatizados
+   - Permite login com os sample users: `admin@example.com` e `user@example.com` (senha: `password123`)
+   
+   **Após substituir o arquivo, execute:**
+   ```bash
+   npm run seed
+   ```
+
+4. **Sempre que for executar os testes, inicie a API:**
 ```bash
 cd "cinema-challenge-back"
 npm run dev
 ```
 
-4. **Verifique se a API está rodando** em `http://localhost:5000`
+5. **Verifique se a API está rodando** em `http://localhost:5000`
 
 ### Credenciais de Teste
 
