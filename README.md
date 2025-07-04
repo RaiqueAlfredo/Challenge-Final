@@ -16,8 +16,12 @@ O **Cinema App Challenge Final** é um projeto completo de plano de teste e auto
 **Cargo:** Estagiário na Compass UOL - PB AWS & AI for QE   
 **Idade:** 21 anos   
 **Curso:** Bacharelado em Engenharia de Software    
-**Semestre:**   
-**Cidade:** Imbituva - PR
+**Semestre:** 7º Semestre  
+**Cidade:** Imbituva - PR  
+**Cor dos olhos:** Verde escuro    
+**Cor dos cabelos:** Preto    
+**Cor de pele:** Branco    
+**Tipo de roupa que estou usando**: Calça de moletom branca e jaqueta branca
 
 
 ## 🏗️ Estrutura do Projeto
@@ -232,21 +236,49 @@ Mantenha:
 ```
 ## 🤝 Agradecimentos e Colaborações
 
-### 👥 Equipe e Colaboradores
+### 👥 Squad 5 - Thunderbolts
 
-**[Esta seção será preenchida com os nomes dos colegas que contribuíram]**
+Gostaria de agradecer aos integrantes da minha Squad 5 - Thunderbolts:
+- **Gabriel Vitor Silva Lobo**
+- **Izadora Santos de Souza**
+- **Thais do Amaral Cordeiro**
 
-- **[Nome do Colega 1]** - Contribuição em [área específica]
-- **[Nome do Colega 2]** - Apoio em [área específica]
-- **[Nome do Mentor/Lead]** - Orientação técnica e revisões
-- **[Nome da Equipe]** - Suporte e feedback durante o desenvolvimento
+Por sempre estarem a disposição em ajudar e tirar dúvidas.
 
-### 🙏 Reconhecimentos Especiais
+### 🔧 Integração Backend/Frontend
 
-- **Equipe de Desenvolvimento** - Por fornecer APIs estáveis e documentação
-- **Product Owner** - Por definir critérios de aceitação claros
-- **Scrum Master** - Por facilitar o processo e remover impedimentos
-- **Comunidade Robot Framework** - Por recursos e documentação excelentes
+Gostaria de agradecer ao **Douglas Paulo Cortes** por me ajudar a integrar o back-end e front-end do Cinema App.
+
+### 👥 Ex-Squad Ruptura
+
+Gostaria de agradecer a minha antiga Squad - Ruptura, a qual mantemos contato no whatsapp, aos ex-integrantes dela:
+- **Ádony Lagares Guimarães**
+- **Cassia Yumi Iwamoto Basso**
+- **Luis Magris de Sousa**
+- **Thais Nogueira Baldino**
+
+Por sempre estarem respondendo as dúvidas que eu mandava. E um agradecimento a parte pro **Ádony Lagares Guimarães** por ter disponibilizado o código do arquivo seedData.js que permitia fazer uso dos "Sample Users" disponível no repositório do Cinema App backend.
+
+### 👨‍💻 Colegas do PB
+
+Agradecimentos aos colegas do PB:
+- **Marcos Paulo Alves de Freitas**
+- **Pedro Afonso de Alencar Silva**
+- **Wesley Cassio Lopes da Silva**
+
+Por me ajudarem com as dúvidas que tinha durante as dailys.
+
+### 🎯 Scrum Masters
+
+Agradecimentos aos Scrum Master:
+- **Carlos Leonardo Alves Novaes**
+- **Pedro de Oliveira Paiva e Souza**
+
+Por estarem conduzindo as dailys e nos ajudar compartilhando conhecimentos e tirando as dúvidas.
+
+### 👨‍🏫 Instrutor
+
+Agradecimentos ao instrutor do PB **Jacques de Jesus Figueredo Schmitz J.** por centralizar e tirar nossas dúvidas referente ao Cinema App - Challenge Final.
 
 ## 📞 Suporte e Contato
 
