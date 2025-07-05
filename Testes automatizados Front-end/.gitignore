@@ -33,3 +33,8 @@ venv/
 # Screenshots de falhas
 screenshots/
 *.png
+
+# Allure Reports
+# Resultados e relatórios do Allure gerados automaticamente
+allure-results/
+allure-report/

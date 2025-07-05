@@ -10,6 +10,9 @@ jsonschema==4.21.1
 # Gerenciamento de variáveis de ambiente
 python-dotenv==1.0.0
 
+# Relatórios avançados
+allure-robotframework==2.13.2
+
 # Dependências do sistema
 requests==2.31.0
 bson==0.5.10

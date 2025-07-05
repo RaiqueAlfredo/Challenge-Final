@@ -5,6 +5,12 @@ logs/
 *.html
 *.xml
 
+# Allure Reports
+# Resultados e relatórios do Allure gerados automaticamente
+allure-results/
+allure-report/
+output/
+
 # Cache do Python
 # Arquivos compilados do Python que são gerados automaticamente
 # para melhorar performance, mas não devem ser versionados
